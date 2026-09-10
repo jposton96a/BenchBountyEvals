@@ -44,4 +44,3 @@ details when applicable, and:
 ```
 
 Unknown or unavailable fields are omitted or `null`; they are never guessed.
-
