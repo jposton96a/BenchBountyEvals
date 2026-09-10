@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benchbountyevals.github.io/schemas/run-handoff.schema.json",
+  "title": "Runner to publisher handoff",
+  "type": "object",
+  "required": ["schemaVersion", "runId", "status", "sourceDir", "manifestPath"],
+  "properties": {
+    "schemaVersion": {"type": "integer", "const": 1},
+    "runId": {"type": "string"},
+    "status": {"type": "string", "enum": ["completed", "failed", "partial"]},
+    "sourceDir": {"type": "string"},
+    "manifestPath": {"type": "string"},
+    "normalizedResultPath": {"type": ["string", "null"]},
+    "taskResultsPath": {"type": ["string", "null"]},
+    "model": {"type": ["object", "null"]},
+    "benchmark": {"type": ["object", "null"]},
+    "notes": {"type": ["string", "null"]},
+    "publishApproved": {"type": "boolean"}
+  },
+  "additionalProperties": true
+}

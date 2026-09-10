@@ -1,0 +1,9 @@
+.env
+.env.*
+!.env.example
+work/
+*.log
+*.tmp
+node_modules/
+__pycache__/
+

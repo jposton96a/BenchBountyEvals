@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benchbountyevals.github.io/schemas/run-manifest.schema.json",
+  "title": "BenchBounty exact run manifest",
+  "type": "object",
+  "required": ["schemaVersion", "runId", "status", "model", "benchmark", "provenance"],
+  "properties": {
+    "schemaVersion": {"type": "integer", "const": 1},
+    "runId": {"type": "string", "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]{2,127}$"},
+    "status": {"type": "string", "enum": ["completed", "failed", "partial"]},
+    "model": {"type": "object", "required": ["id", "name"], "properties": {"id": {"type": "string"}, "name": {"type": "string"}, "repo": {"type": "string"}, "revision": {"type": "string"}}, "additionalProperties": true},
+    "quantization": {"type": ["object", "null"], "additionalProperties": true},
+    "inference": {"type": ["object", "null"], "additionalProperties": true},
+    "thinking": {"type": ["object", "null"], "additionalProperties": true},
+    "harness": {"type": ["object", "null"], "additionalProperties": true},
+    "benchmark": {"type": "object", "required": ["id", "name"], "properties": {"id": {"type": "string"}, "name": {"type": "string"}, "version": {"type": "string"}}, "additionalProperties": true},
+    "execution": {"type": ["object", "null"], "additionalProperties": true},
+    "hardware": {"type": ["object", "null"], "additionalProperties": true},
+    "cost": {"type": ["object", "null"], "additionalProperties": true},
+    "provenance": {"type": "object", "required": ["kind", "measuredByAgentBench"], "properties": {"kind": {"type": "string", "enum": ["agent_bench", "demo", "official_model_card", "community", "imported"]}, "measuredByAgentBench": {"type": "boolean"}}, "additionalProperties": true},
+    "failure": {"type": ["object", "null"], "additionalProperties": true}
+  },
+  "additionalProperties": true
+}

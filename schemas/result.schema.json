@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benchbountyevals.github.io/schemas/result.schema.json",
+  "title": "BenchBounty normalized result",
+  "type": "object",
+  "required": ["schemaVersion", "runId", "status", "model", "benchmark", "provenance", "artifacts"],
+  "properties": {
+    "schemaVersion": {"type": "integer", "const": 1},
+    "runId": {"type": "string"},
+    "status": {"type": "string", "enum": ["completed", "failed", "partial"]},
+    "model": {"type": "object"},
+    "benchmark": {"type": "object"},
+    "result": {"type": ["object", "null"]},
+    "tasks": {"type": "array", "items": {"type": "object"}},
+    "provenance": {"type": "object"},
+    "artifacts": {"type": "object", "required": ["rawBundle"], "properties": {"rawBundle": {"type": "object", "required": ["url", "sha256"], "properties": {"url": {"type": "string", "format": "uri"}, "sha256": {"type": "string", "pattern": "^[a-fA-F0-9]{64}$"}, "sizeBytes": {"type": "integer", "minimum": 0}}, "additionalProperties": true}}, "additionalProperties": true}
+  },
+  "additionalProperties": true
+}
