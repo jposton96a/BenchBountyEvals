@@ -10,12 +10,11 @@ REMOTE="$OWNER/$REPO"
 [[ -f "$HANDOFF" ]] || { echo "handoff not found: $HANDOFF" >&2; exit 2; }
 command -v jq >/dev/null || { echo "jq is required" >&2; exit 2; }
 command -v gh >/dev/null || { echo "gh is required" >&2; exit 2; }
-command -v zstd >/dev/null || { echo "zstd is required" >&2; exit 2; }
 
 RUN_ID="$(jq -er '.runId' "$HANDOFF")"
 STATUS="$(jq -er '.status' "$HANDOFF")"
-SOURCE_DIR="$(jq -er '.sourceDir' "$HANDOFF")"
-MANIFEST_PATH="$(jq -er '.manifestPath' "$HANDOFF")"
+SOURCE_DIR="$(jq -er '.sourceDir // .jobPath' "$HANDOFF")"
+MANIFEST_PATH="$(jq -er '.manifestPath // .configPath // .resultPath' "$HANDOFF")"
 HANDOFF_DIR="$(cd -- "$(dirname -- "$HANDOFF")" && pwd)"
 [[ "$SOURCE_DIR" = /* ]] || SOURCE_DIR="$HANDOFF_DIR/$SOURCE_DIR"
 [[ "$MANIFEST_PATH" = /* ]] || MANIFEST_PATH="$HANDOFF_DIR/$MANIFEST_PATH"
@@ -40,9 +39,15 @@ find "$STAGE/bundle" -type f \( -name '*.pem' -o -name '*.key' \) -delete
 "$ROOT_DIR/scripts/secret_scan.sh" "$STAGE/bundle"
 (cd "$STAGE/bundle" && find . -type f -print0 | sort -z | xargs -0 sha256sum > checksums.sha256)
 tar -C "$STAGE/bundle" -cf "$STAGE/$RUN_ID.tar" .
-zstd -T0 -19 --rm "$STAGE/$RUN_ID.tar" -o "$STAGE/$RUN_ID.tar.zst"
-SHA256="$(sha256sum "$STAGE/$RUN_ID.tar.zst" | awk '{print $1}')"
-SIZE="$(stat -c '%s' "$STAGE/$RUN_ID.tar.zst")"
+if command -v zstd >/dev/null 2>&1; then
+  zstd -T0 -19 --rm "$STAGE/$RUN_ID.tar" -o "$STAGE/$RUN_ID.tar.zst"
+  BUNDLE="$STAGE/$RUN_ID.tar.zst"
+else
+  gzip -9 "$STAGE/$RUN_ID.tar"
+  BUNDLE="$STAGE/$RUN_ID.tar.gz"
+fi
+SHA256="$(sha256sum "$BUNDLE" | awk '{print $1}')"
+SIZE="$(stat -c '%s' "$BUNDLE")"
 
 if ! gh repo view "$REMOTE" >/dev/null 2>&1; then
   gh repo create "$REMOTE" --public --description "Public evaluation metadata and trace bundles for BenchBounty" --source "$ROOT_DIR" --remote origin --push
@@ -52,8 +57,9 @@ else
   fi
 fi
 
-RELEASE_URL="$(gh release create "$RUN_ID" "$STAGE/$RUN_ID.tar.zst" --repo "$REMOTE" --title "$RUN_ID" --notes "Immutable raw artifacts for $RUN_ID. Compact normalized results are published in GitHub Pages.")"
-ASSET_URL="https://github.com/$REMOTE/releases/download/$RUN_ID/$RUN_ID.tar.zst"
+RELEASE_URL="$(gh release create "$RUN_ID" "$BUNDLE" --repo "$REMOTE" --title "$RUN_ID" --notes "Immutable raw artifacts for $RUN_ID. Compact normalized results are published in GitHub Pages.")"
+ASSET_NAME="$(basename "$BUNDLE")"
+ASSET_URL="https://github.com/$REMOTE/releases/download/$RUN_ID/$ASSET_NAME"
 
 python3 - "$ROOT_DIR" "$HANDOFF" "$MANIFEST_PATH" "$RUN_ID" "$STATUS" "$ASSET_URL" "$SHA256" "$SIZE" <<'PY'
 import json, pathlib, sys
@@ -107,4 +113,3 @@ git -C "$ROOT_DIR" push -u origin HEAD
 echo "published $RUN_ID"
 echo "release: $RELEASE_URL"
 echo "asset: $ASSET_URL"
-

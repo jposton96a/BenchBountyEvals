@@ -24,8 +24,9 @@ Scores are never synthesized from missing artifacts. Smoke tests are marked
 
 ## Raw artifacts
 
-The Release asset is `<run-id>.tar.zst` (or deterministic numbered parts when
-larger than GitHub's per-asset limit). It contains the original Harbor job,
+The Release asset is `<run-id>.tar.zst` (or `<run-id>.tar.gz` when the host has
+no zstd binary; deterministic numbered parts are used when larger than
+GitHub's per-asset limit). It contains the original Harbor job,
 trial traces, stdout/stderr, normalized outputs, environment inventory, and a
 SHA-256 manifest. Secrets and credentials are excluded before publication.
 
@@ -36,4 +37,3 @@ SHA-256 manifest. Secrets and credentials are excluded before publication.
 ```
 
 The publisher will be added/used after a runner writes `RUN_HANDOFF.json`.
-
