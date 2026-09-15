@@ -110,6 +110,10 @@ PY
 git -C "$ROOT_DIR" add README.md .gitignore schemas docs scripts published
 git -C "$ROOT_DIR" commit -m "Publish evaluation $RUN_ID" || true
 git -C "$ROOT_DIR" push -u origin HEAD
+gh api --method POST "repos/$REMOTE/pages" \
+  -f "source[branch]=master" -f "source[path]=/" >/dev/null 2>&1 || true
+PAGES_URL="https://$OWNER.github.io/$REPO"
 echo "published $RUN_ID"
 echo "release: $RELEASE_URL"
 echo "asset: $ASSET_URL"
+echo "pages: $PAGES_URL"
