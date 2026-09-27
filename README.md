@@ -36,4 +36,14 @@ SHA-256 manifest. Secrets and credentials are excluded before publication.
 ./scripts/validate_json.sh
 ```
 
-The publisher will be added/used after a runner writes `RUN_HANDOFF.json`.
+## Publishing a run
+
+```bash
+PUBLISH_MODE=local ./scripts/publish_run.sh /path/to/RUN_HANDOFF.json
+```
+
+`local` bundles, scans and writes `published/` JSON, then commits locally; the
+bundle stays in `work/<run-id>/` and `rawBundle.uploaded` is `false`. The
+default `remote` mode also creates the public repo, the Release, pushes and
+enables Pages. `index.json` `dataStatus` is `real` only when every listed run
+has `provenance.kind: agent_bench`; `realRunCount` counts those runs.
