@@ -1,0 +1,9 @@
+{
+  "id": "aider-polyglot",
+  "name": "Aider Polyglot",
+  "runCount": 1,
+  "runIds": [
+    "20260927-oracle-aider-polyglot-4lang-001"
+  ],
+  "url": "benchmarks/aider-polyglot.json"
+}

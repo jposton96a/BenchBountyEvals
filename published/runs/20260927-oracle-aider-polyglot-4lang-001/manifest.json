@@ -1,0 +1,138 @@
+{
+  "artifacts": {
+    "rawBundle": {
+      "localPath": "work/20260927-oracle-aider-polyglot-4lang-001/20260927-oracle-aider-polyglot-4lang-001.tar.zst",
+      "sha256": "4052419b74805283396dfe6cd1b2c0fe29dd09e56859aa7859dc7617cb988288",
+      "sizeBytes": 11656,
+      "uploaded": false,
+      "url": "https://github.com/jposton96a/BenchBountyEvals/releases/download/20260927-oracle-aider-polyglot-4lang-001/20260927-oracle-aider-polyglot-4lang-001.tar.zst"
+    }
+  },
+  "benchmark": {
+    "dataset": "aider-polyglot@1.0",
+    "id": "aider-polyglot",
+    "name": "Aider Polyglot",
+    "subset": {
+      "selection": "first exercise alphabetically in python, javascript, go, rust",
+      "tasks": [
+        "polyglot_python_affine-cipher",
+        "polyglot_javascript_affine-cipher",
+        "polyglot_go_alphametics",
+        "polyglot_rust_accumulate"
+      ]
+    },
+    "version": "1.0"
+  },
+  "cost": {
+    "cacheTokens": null,
+    "currency": "USD",
+    "inferenceUsd": null,
+    "inputTokens": null,
+    "outputTokens": null,
+    "source": "Harbor agent_result (LiteLLM-reported)"
+  },
+  "execution": {
+    "environment": "docker",
+    "finishedAt": "2026-09-27T08:16:03.095157",
+    "jobName": "aider-oracle-check",
+    "maxRetries": 0,
+    "nConcurrentTrials": 1,
+    "startedAt": "2026-09-27T08:08:46.698680",
+    "taskResourceLimits": "not enforced (host cgroup delegates no memory controller)",
+    "wallClockSec": 436.4
+  },
+  "failure": null,
+  "hardware": {
+    "inference": null,
+    "taskHost": "VibeHost VibeSpace (Debian 12, 2 vCPU, 8 GiB)"
+  },
+  "harness": {
+    "agent": "oracle",
+    "agentKwargs": {},
+    "agentVersion": "1.0.0",
+    "name": "harbor",
+    "source": "github.com/harbor-framework/harbor@191d1b989bbba1d77c2db23e17aec308d7c08046",
+    "version": "0.22.0"
+  },
+  "inference": null,
+  "model": {
+    "id": "oracle",
+    "name": "oracle"
+  },
+  "provenance": {
+    "kind": "demo",
+    "measuredByAgentBench": false,
+    "note": "Harbor oracle agent (reference solutions); pipeline check only, not a model result."
+  },
+  "quantization": null,
+  "result": {
+    "metric": "pass_rate",
+    "nErrored": 0,
+    "nFailed": 0,
+    "nPassed": 4,
+    "nTasks": 4,
+    "note": "Bounded 4-task subset (first exercise alphabetically in python, javascript, go, rust); not comparable to a full-suite score.",
+    "score": 1.0,
+    "subset": true
+  },
+  "runId": "20260927-oracle-aider-polyglot-4lang-001",
+  "schemaVersion": 1,
+  "status": "completed",
+  "tasks": [
+    {
+      "cacheTokens": null,
+      "costUsd": null,
+      "durationSec": 89.8,
+      "error": null,
+      "inputTokens": null,
+      "outcome": "passed",
+      "outputTokens": null,
+      "reward": 1.0,
+      "taskGitCommit": "f30b14415dd733c83627204bad0af69a89ceb46f",
+      "taskName": "polyglot_go_alphametics",
+      "trialName": "polyglot_go_alphametics__q9m6kD3"
+    },
+    {
+      "cacheTokens": null,
+      "costUsd": null,
+      "durationSec": 154.0,
+      "error": null,
+      "inputTokens": null,
+      "outcome": "passed",
+      "outputTokens": null,
+      "reward": 1.0,
+      "taskGitCommit": "f30b14415dd733c83627204bad0af69a89ceb46f",
+      "taskName": "polyglot_javascript_affine-cipher",
+      "trialName": "polyglot_javascript_affine-ciphe__TbxsViG"
+    },
+    {
+      "cacheTokens": null,
+      "costUsd": null,
+      "durationSec": 97.6,
+      "error": null,
+      "inputTokens": null,
+      "outcome": "passed",
+      "outputTokens": null,
+      "reward": 1.0,
+      "taskGitCommit": "f30b14415dd733c83627204bad0af69a89ceb46f",
+      "taskName": "polyglot_python_affine-cipher",
+      "trialName": "polyglot_python_affine-cipher__Tck47pp"
+    },
+    {
+      "cacheTokens": null,
+      "costUsd": null,
+      "durationSec": 94.7,
+      "error": null,
+      "inputTokens": null,
+      "outcome": "passed",
+      "outputTokens": null,
+      "reward": 1.0,
+      "taskGitCommit": "f30b14415dd733c83627204bad0af69a89ceb46f",
+      "taskName": "polyglot_rust_accumulate",
+      "trialName": "polyglot_rust_accumulate__HUxNFLi"
+    }
+  ],
+  "thinking": {
+    "reasoningEffort": null
+  }
+}

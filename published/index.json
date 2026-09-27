@@ -1,6 +1,15 @@
 {
   "benchmarks": [
     {
+      "id": "aider-polyglot",
+      "name": "Aider Polyglot",
+      "runCount": 1,
+      "runIds": [
+        "20260927-oracle-aider-polyglot-4lang-001"
+      ],
+      "url": "benchmarks/aider-polyglot.json"
+    },
+    {
       "id": "terminal-bench-2",
       "name": "Terminal-Bench 2.0",
       "runCount": 1,
@@ -11,13 +20,14 @@
     }
   ],
   "dataStatus": "demo",
-  "generatedAt": "2026-09-27T08:18:43.872070+00:00",
+  "generatedAt": "2026-09-27T08:18:44.630953+00:00",
   "models": [
     {
       "id": "oracle",
       "name": "oracle",
-      "runCount": 1,
+      "runCount": 2,
       "runIds": [
+        "20260927-oracle-aider-polyglot-4lang-001",
         "20260927-oracle-terminal-bench-2-easy4-001"
       ],
       "url": "models/oracle.json"
@@ -25,6 +35,12 @@
   ],
   "realRunCount": 0,
   "runs": [
+    {
+      "provenanceKind": "demo",
+      "runId": "20260927-oracle-aider-polyglot-4lang-001",
+      "status": "completed",
+      "url": "runs/20260927-oracle-aider-polyglot-4lang-001/result.json"
+    },
     {
       "provenanceKind": "demo",
       "runId": "20260927-oracle-terminal-bench-2-easy4-001",
