@@ -1,0 +1,138 @@
+{
+  "artifacts": {
+    "rawBundle": {
+      "localPath": "work/20260927-oracle-terminal-bench-2-easy4-001/20260927-oracle-terminal-bench-2-easy4-001.tar.zst",
+      "sha256": "beca261968c65a59e6d3c691a2812fd034fffa5ebdede336aec6aa262153424a",
+      "sizeBytes": 19699,
+      "uploaded": false,
+      "url": "https://github.com/jposton96a/BenchBountyEvals/releases/download/20260927-oracle-terminal-bench-2-easy4-001/20260927-oracle-terminal-bench-2-easy4-001.tar.zst"
+    }
+  },
+  "benchmark": {
+    "dataset": "terminal-bench@2.0",
+    "id": "terminal-bench-2",
+    "name": "Terminal-Bench 2.0",
+    "subset": {
+      "selection": "all tasks with metadata.difficulty = easy",
+      "tasks": [
+        "cobol-modernization",
+        "fix-git",
+        "overfull-hbox",
+        "prove-plus-comm"
+      ]
+    },
+    "version": "2.0"
+  },
+  "cost": {
+    "cacheTokens": null,
+    "currency": "USD",
+    "inferenceUsd": null,
+    "inputTokens": null,
+    "outputTokens": null,
+    "source": "Harbor agent_result (LiteLLM-reported)"
+  },
+  "execution": {
+    "environment": "docker",
+    "finishedAt": "2026-09-27T08:07:18.474676",
+    "jobName": "tb2-oracle-check",
+    "maxRetries": 0,
+    "nConcurrentTrials": 1,
+    "startedAt": "2026-09-27T08:03:00.765251",
+    "taskResourceLimits": "not enforced (host cgroup delegates no memory controller)",
+    "wallClockSec": 257.7
+  },
+  "failure": null,
+  "hardware": {
+    "inference": null,
+    "taskHost": "VibeHost VibeSpace (Debian 12, 2 vCPU, 8 GiB)"
+  },
+  "harness": {
+    "agent": "oracle",
+    "agentKwargs": {},
+    "agentVersion": "1.0.0",
+    "name": "harbor",
+    "source": "github.com/harbor-framework/harbor@191d1b989bbba1d77c2db23e17aec308d7c08046",
+    "version": "0.22.0"
+  },
+  "inference": null,
+  "model": {
+    "id": "oracle",
+    "name": "oracle"
+  },
+  "provenance": {
+    "kind": "demo",
+    "measuredByAgentBench": false,
+    "note": "Harbor oracle agent (reference solutions); pipeline check only, not a model result."
+  },
+  "quantization": null,
+  "result": {
+    "metric": "pass_rate",
+    "nErrored": 0,
+    "nFailed": 0,
+    "nPassed": 4,
+    "nTasks": 4,
+    "note": "Bounded 4-task subset (all tasks with metadata.difficulty = easy); not comparable to a full-suite score.",
+    "score": 1.0,
+    "subset": true
+  },
+  "runId": "20260927-oracle-terminal-bench-2-easy4-001",
+  "schemaVersion": 1,
+  "status": "completed",
+  "tasks": [
+    {
+      "cacheTokens": null,
+      "costUsd": null,
+      "durationSec": 32.1,
+      "error": null,
+      "inputTokens": null,
+      "outcome": "passed",
+      "outputTokens": null,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "cobol-modernization",
+      "trialName": "cobol-modernization__J3s4ujT"
+    },
+    {
+      "cacheTokens": null,
+      "costUsd": null,
+      "durationSec": 28.4,
+      "error": null,
+      "inputTokens": null,
+      "outcome": "passed",
+      "outputTokens": null,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "fix-git",
+      "trialName": "fix-git__74S6g24"
+    },
+    {
+      "cacheTokens": null,
+      "costUsd": null,
+      "durationSec": 152.7,
+      "error": null,
+      "inputTokens": null,
+      "outcome": "passed",
+      "outputTokens": null,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "overfull-hbox",
+      "trialName": "overfull-hbox__nbSbqRr"
+    },
+    {
+      "cacheTokens": null,
+      "costUsd": null,
+      "durationSec": 44.3,
+      "error": null,
+      "inputTokens": null,
+      "outcome": "passed",
+      "outputTokens": null,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "prove-plus-comm",
+      "trialName": "prove-plus-comm__WPvmvBQ"
+    }
+  ],
+  "thinking": {
+    "reasoningEffort": null
+  }
+}

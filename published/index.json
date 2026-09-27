@@ -1,0 +1,36 @@
+{
+  "benchmarks": [
+    {
+      "id": "terminal-bench-2",
+      "name": "Terminal-Bench 2.0",
+      "runCount": 1,
+      "runIds": [
+        "20260927-oracle-terminal-bench-2-easy4-001"
+      ],
+      "url": "benchmarks/terminal-bench-2.json"
+    }
+  ],
+  "dataStatus": "demo",
+  "generatedAt": "2026-09-27T08:18:43.872070+00:00",
+  "models": [
+    {
+      "id": "oracle",
+      "name": "oracle",
+      "runCount": 1,
+      "runIds": [
+        "20260927-oracle-terminal-bench-2-easy4-001"
+      ],
+      "url": "models/oracle.json"
+    }
+  ],
+  "realRunCount": 0,
+  "runs": [
+    {
+      "provenanceKind": "demo",
+      "runId": "20260927-oracle-terminal-bench-2-easy4-001",
+      "status": "completed",
+      "url": "runs/20260927-oracle-terminal-bench-2-easy4-001/result.json"
+    }
+  ],
+  "schemaVersion": 1
+}

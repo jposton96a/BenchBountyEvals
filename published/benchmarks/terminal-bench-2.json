@@ -1,0 +1,9 @@
+{
+  "id": "terminal-bench-2",
+  "name": "Terminal-Bench 2.0",
+  "runCount": 1,
+  "runIds": [
+    "20260927-oracle-terminal-bench-2-easy4-001"
+  ],
+  "url": "benchmarks/terminal-bench-2.json"
+}
