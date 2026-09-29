@@ -1,9 +1,10 @@
 {
   "id": "aider-polyglot",
   "name": "Aider Polyglot",
-  "runCount": 1,
+  "runCount": 2,
   "runIds": [
-    "20260927-oracle-aider-polyglot-4lang-001"
+    "20260927-oracle-aider-polyglot-4lang-001",
+    "20260929-qwen36-aider-polyglot-4lang-001"
   ],
   "url": "benchmarks/aider-polyglot.json"
 }

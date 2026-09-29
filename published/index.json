@@ -3,9 +3,10 @@
     {
       "id": "aider-polyglot",
       "name": "Aider Polyglot",
-      "runCount": 1,
+      "runCount": 2,
       "runIds": [
-        "20260927-oracle-aider-polyglot-4lang-001"
+        "20260927-oracle-aider-polyglot-4lang-001",
+        "20260929-qwen36-aider-polyglot-4lang-001"
       ],
       "url": "benchmarks/aider-polyglot.json"
     },
@@ -21,7 +22,7 @@
     }
   ],
   "dataStatus": "demo",
-  "generatedAt": "2026-09-29T13:24:18.243891+00:00",
+  "generatedAt": "2026-09-29T13:37:30.257778+00:00",
   "models": [
     {
       "id": "oracle",
@@ -36,14 +37,15 @@
     {
       "id": "qwen3.6-35b-a3b",
       "name": "Qwen3.6 35B A3B",
-      "runCount": 1,
+      "runCount": 2,
       "runIds": [
+        "20260929-qwen36-aider-polyglot-4lang-001",
         "20260929-qwen36-terminal-bench-2-easy4-001"
       ],
       "url": "models/qwen3.6-35b-a3b.json"
     }
   ],
-  "realRunCount": 1,
+  "realRunCount": 2,
   "runs": [
     {
       "provenanceKind": "demo",
@@ -56,6 +58,12 @@
       "runId": "20260927-oracle-terminal-bench-2-easy4-001",
       "status": "completed",
       "url": "runs/20260927-oracle-terminal-bench-2-easy4-001/result.json"
+    },
+    {
+      "provenanceKind": "agent_bench",
+      "runId": "20260929-qwen36-aider-polyglot-4lang-001",
+      "status": "completed",
+      "url": "runs/20260929-qwen36-aider-polyglot-4lang-001/result.json"
     },
     {
       "provenanceKind": "agent_bench",
