@@ -5,7 +5,7 @@
   "type": "object",
   "required": ["schemaVersion", "runId", "status", "model", "benchmark", "provenance"],
   "properties": {
-    "schemaVersion": {"type": "integer", "const": 1},
+    "schemaVersion": {"type": "integer", "enum": [1, 2]},
     "runId": {"type": "string", "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]{2,127}$"},
     "status": {"type": "string", "enum": ["completed", "failed", "partial"]},
     "model": {"type": "object", "required": ["id", "name"], "properties": {"id": {"type": "string"}, "name": {"type": "string"}, "repo": {"type": "string"}, "revision": {"type": "string"}}, "additionalProperties": true},
@@ -19,6 +19,33 @@
     "cost": {"type": ["object", "null"], "additionalProperties": true},
     "provenance": {"type": "object", "required": ["kind", "measuredByAgentBench"], "properties": {"kind": {"type": "string", "enum": ["agent_bench", "demo", "official_model_card", "community", "imported"]}, "measuredByAgentBench": {"type": "boolean"}}, "additionalProperties": true},
     "failure": {"type": ["object", "null"], "additionalProperties": true}
+  },
+  "$comment": "Version 2 Agent Bench runs must record quantization and thinking. Version 1 runs predate this and may leave them null.",
+  "if": {"properties": {"schemaVersion": {"const": 2}, "provenance": {"properties": {"kind": {"const": "agent_bench"}}}}},
+  "then": {
+    "required": ["quantization", "thinking"],
+    "properties": {
+      "quantization": {
+        "type": "object",
+        "required": ["level", "servedPrecision", "nativePrecision"],
+        "properties": {
+          "level": {"description": "'full' when served at the checkpoint's native precision; otherwise the served precision.", "enum": ["full", "bf16", "fp16", "fp8", "int8", "fp6", "fp4", "int4"]},
+          "servedPrecision": {"type": "string"},
+          "nativePrecision": {"type": "string"}
+        }
+      },
+      "thinking": {
+        "type": "object",
+        "required": ["mode", "effort"],
+        "properties": {
+          "mode": {"description": "'unsupported' for models without a thinking mode.", "enum": ["unsupported", "off", "on"]},
+          "effort": {"enum": [null, "default", "minimal", "low", "medium", "high", "xhigh", "max"]}
+        },
+        "if": {"properties": {"mode": {"const": "on"}}},
+        "then": {"properties": {"effort": {"type": "string"}}},
+        "else": {"properties": {"effort": {"const": null}}}
+      }
+    }
   },
   "additionalProperties": true
 }
