@@ -11,8 +11,13 @@
 7. Write normalized compact JSON with the Release URL and checksum.
 8. Validate all JSON and cross-references, regenerate indexes, then push the
    static `published/` directory.
-9. Enable GitHub Pages from the default branch and verify unauthenticated
+9. Enable GitHub Pages from the publication branch and verify unauthenticated
    `index.json`, run JSON, and Release asset URLs.
+
+Sample and subset runs belong on `test`. Keep `master` free of published run
+documents until complete evaluations are ready. GitHub Pages serves `test`
+while those results are being reviewed. The publisher pushes the currently
+checked-out branch, so switch to `test` before publishing a new sample run.
 
 Do not publish a failed run automatically when the handoff leaves ambiguity
 about whether it is a real measurement or only setup output. Preserve failed
