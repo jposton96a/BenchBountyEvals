@@ -13,16 +13,17 @@
     {
       "id": "terminal-bench-2",
       "name": "Terminal-Bench 2.0",
-      "runCount": 2,
+      "runCount": 3,
       "runIds": [
         "20260927-oracle-terminal-bench-2-easy4-001",
-        "20260929-qwen36-terminal-bench-2-easy4-001"
+        "20260929-qwen36-terminal-bench-2-easy4-001",
+        "20261004-qwen38-27b-q8_0-terminal-bench-2-full-001"
       ],
       "url": "benchmarks/terminal-bench-2.json"
     }
   ],
   "dataStatus": "demo",
-  "generatedAt": "2026-09-29T13:37:30.257778+00:00",
+  "generatedAt": "2026-10-04T08:19:39.907012+00:00",
   "models": [
     {
       "id": "oracle",
@@ -43,9 +44,18 @@
         "20260929-qwen36-terminal-bench-2-easy4-001"
       ],
       "url": "models/qwen3.6-35b-a3b.json"
+    },
+    {
+      "id": "qwen3.8-27b",
+      "name": "Qwen3.8 27B",
+      "runCount": 1,
+      "runIds": [
+        "20261004-qwen38-27b-q8_0-terminal-bench-2-full-001"
+      ],
+      "url": "models/qwen3.8-27b.json"
     }
   ],
-  "realRunCount": 2,
+  "realRunCount": 3,
   "runs": [
     {
       "provenanceKind": "demo",
@@ -70,6 +80,12 @@
       "runId": "20260929-qwen36-terminal-bench-2-easy4-001",
       "status": "completed",
       "url": "runs/20260929-qwen36-terminal-bench-2-easy4-001/result.json"
+    },
+    {
+      "provenanceKind": "agent_bench",
+      "runId": "20261004-qwen38-27b-q8_0-terminal-bench-2-full-001",
+      "status": "completed",
+      "url": "runs/20261004-qwen38-27b-q8_0-terminal-bench-2-full-001/result.json"
     }
   ],
   "schemaVersion": 1

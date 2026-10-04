@@ -1,0 +1,9 @@
+{
+  "id": "qwen3.8-27b",
+  "name": "Qwen3.8 27B",
+  "runCount": 1,
+  "runIds": [
+    "20261004-qwen38-27b-q8_0-terminal-bench-2-full-001"
+  ],
+  "url": "models/qwen3.8-27b.json"
+}
