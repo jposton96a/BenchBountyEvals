@@ -58,6 +58,9 @@ this rule and may leave them `null`.
 
 - `quantization.level` is `full` when the model was served at its checkpoint's
   native precision, otherwise the served precision (`fp8`, `fp4`, `int4`, ...).
+  Self-hosted GGUF runs record the llama.cpp quant type verbatim (`Q4_K_M`,
+  `Q6_K`, `Q8_0`, ...) together with `"format": "gguf"`, since k-quants mix
+  bit widths and have no faithful match among the precision names.
 - `thinking.mode` is `unsupported` for models without a thinking mode, else
   `off` or `on`. `effort` is set only when `mode` is `on`; `default` means
   thinking was enabled without an explicit effort.
