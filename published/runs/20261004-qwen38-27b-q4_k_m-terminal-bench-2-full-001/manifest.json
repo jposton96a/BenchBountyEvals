@@ -1,0 +1,1631 @@
+{
+  "artifacts": {
+    "rawBundle": {
+      "sha256": "688eb916520625b56a723aabdb721c6aea2de1ed675a7573a4faa89115d4b80d",
+      "sizeBytes": 13742695,
+      "uploaded": true,
+      "url": "https://github.com/jposton96a/BenchBountyEvals/releases/download/20261004-qwen38-27b-q4_k_m-terminal-bench-2-full-001/20261004-qwen38-27b-q4_k_m-terminal-bench-2-full-001.tar.gz"
+    }
+  },
+  "benchmark": {
+    "dataset": "terminal-bench@2.0",
+    "id": "terminal-bench-2",
+    "name": "Terminal-Bench 2.0",
+    "subset": {
+      "selection": "all 89 tasks",
+      "tasks": [
+        "adaptive-rejection-sampler",
+        "bn-fit-modify",
+        "break-filter-js-from-html",
+        "build-cython-ext",
+        "build-pmars",
+        "build-pov-ray",
+        "caffe-cifar-10",
+        "cancel-async-tasks",
+        "chess-best-move",
+        "circuit-fibsqrt",
+        "cobol-modernization",
+        "code-from-image",
+        "compile-compcert",
+        "configure-git-webserver",
+        "constraints-scheduling",
+        "count-dataset-tokens",
+        "crack-7z-hash",
+        "custom-memory-heap-crash",
+        "db-wal-recovery",
+        "distribution-search",
+        "dna-assembly",
+        "dna-insert",
+        "extract-elf",
+        "extract-moves-from-video",
+        "feal-differential-cryptanalysis",
+        "feal-linear-cryptanalysis",
+        "filter-js-from-html",
+        "financial-document-processor",
+        "fix-code-vulnerability",
+        "fix-git",
+        "fix-ocaml-gc",
+        "gcode-to-text",
+        "git-leak-recovery",
+        "git-multibranch",
+        "gpt2-codegolf",
+        "headless-terminal",
+        "hf-model-inference",
+        "install-windows-3.11",
+        "kv-store-grpc",
+        "large-scale-text-editing",
+        "largest-eigenval",
+        "llm-inference-batching-scheduler",
+        "log-summary-date-ranges",
+        "mailman",
+        "make-doom-for-mips",
+        "make-mips-interpreter",
+        "mcmc-sampling-stan",
+        "merge-diff-arc-agi-task",
+        "model-extraction-relu-logits",
+        "modernize-scientific-stack",
+        "mteb-leaderboard",
+        "mteb-retrieve",
+        "multi-source-data-merger",
+        "nginx-request-logging",
+        "openssl-selfsigned-cert",
+        "overfull-hbox",
+        "password-recovery",
+        "path-tracing-reverse",
+        "path-tracing",
+        "polyglot-c-py",
+        "polyglot-rust-c",
+        "portfolio-optimization",
+        "protein-assembly",
+        "prove-plus-comm",
+        "pypi-server",
+        "pytorch-model-cli",
+        "pytorch-model-recovery",
+        "qemu-alpine-ssh",
+        "qemu-startup",
+        "query-optimize",
+        "raman-fitting",
+        "regex-chess",
+        "regex-log",
+        "reshard-c4-data",
+        "rstan-to-pystan",
+        "sam-cell-seg",
+        "sanitize-git-repo",
+        "schemelike-metacircular-eval",
+        "sparql-university",
+        "sqlite-db-truncate",
+        "sqlite-with-gcov",
+        "torch-pipeline-parallelism",
+        "torch-tensor-parallelism",
+        "train-fasttext",
+        "tune-mjcf",
+        "video-processing",
+        "vulnerable-secret",
+        "winning-avg-corewars",
+        "write-compressor"
+      ]
+    },
+    "version": "2.0"
+  },
+  "cost": {
+    "cacheTokens": 26439746,
+    "currency": "USD",
+    "inferenceUsd": 3.7063,
+    "inputTokens": 28360722,
+    "outputTokens": 763551,
+    "source": "RunPod costPerHr x serving time (tokens from Harbor agent_result)"
+  },
+  "execution": {
+    "environment": "docker",
+    "finishedAt": "2026-10-04T15:11:52.975080",
+    "jobName": "sweep-q4_k_m-tb2-full",
+    "maxRetries": 0,
+    "nConcurrentTrials": 4,
+    "startedAt": "2026-10-04T07:38:26.594829",
+    "taskResourceLimits": "enforced (Harbor default cpus/memory policy)",
+    "wallClockSec": 27206.4
+  },
+  "failure": null,
+  "hardware": {
+    "inference": "RunPod secure NVIDIA A40 x1",
+    "taskHost": "Ubuntu 26.04.1 LTS, Intel(R) Xeon(R) CPU E5-1650 v4 @ 3.60GHz, 12 threads, 60 GiB RAM"
+  },
+  "harness": {
+    "agent": "terminus-2",
+    "agentKwargs": {
+      "api_base": "http://127.0.0.1:18080/v1",
+      "llm_call_kwargs": {
+        "extra_body": {
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          }
+        }
+      },
+      "max_turns": 50,
+      "model_info": {
+        "input_cost_per_token": 0,
+        "max_input_tokens": 65536,
+        "max_output_tokens": 65536,
+        "output_cost_per_token": 0
+      }
+    },
+    "agentVersion": "2.0.0",
+    "name": "harbor",
+    "source": "github.com/harbor-framework/harbor@191d1b989bbba1d77c2db23e17aec308d7c08046",
+    "version": "0.22.0"
+  },
+  "inference": {
+    "endpoint": "ssh tunnel runner -> pod 127.0.0.1:8080",
+    "engine": "llama.cpp",
+    "engineVersion": "version: 0.5.0-dev (build 11146, commit 7fe450e19)",
+    "host": "runpod",
+    "provider": "self-hosted",
+    "routing": "none (single server)"
+  },
+  "model": {
+    "id": "qwen3.8-27b",
+    "name": "Qwen3.8 27B",
+    "repo": "Qwen/Qwen3.8-27B",
+    "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0"
+  },
+  "provenance": {
+    "kind": "agent_bench",
+    "measuredByAgentBench": true,
+    "note": null
+  },
+  "quantization": {
+    "format": "gguf",
+    "level": "Q4_K_M",
+    "nativePrecision": "bf16",
+    "servedPrecision": "gguf Q4_K_M",
+    "source": "bartowski/Qwen3.8-27B-GGUF@0c92138c51f112d2f0dc84d5f6d1ebe4b9912b9a/Qwen3.8-27B-Q4_K_M.gguf"
+  },
+  "result": {
+    "metric": "pass_rate",
+    "nErrored": 0,
+    "nFailed": 59,
+    "nPassed": 30,
+    "nTasks": 89,
+    "nTimedOut": 43,
+    "note": null,
+    "score": 0.3371,
+    "subset": false
+  },
+  "runId": "20261004-qwen38-27b-q4_k_m-terminal-bench-2-full-001",
+  "schemaVersion": 2,
+  "serving": {
+    "engine": {
+      "buildInfo": "b11146-7fe450e19",
+      "image": "ghcr.io/ggml-org/llama.cpp@sha256:52192a23c7b258044463aebba78826cdff39a7393b713edc313324b343a7b836",
+      "imageTag": "ghcr.io/ggml-org/llama.cpp:server-cuda-v0.5.0",
+      "name": "llama.cpp",
+      "serverArgs": "-m /models/Qwen3.8-27B-Q4_K_M.gguf --alias qwen3.8-27b-q4_k_m -ngl 999 -fa on --jinja --reasoning-format deepseek --ctx-size 262144 --parallel 4 --no-kv-unified --n-predict 32768 --temp 0.7 --top-p 0.8 --top-k 20 --min-p 0.0 --presence-penalty 1.5 --repeat-penalty 1.0 --metrics --no-webui --host 127.0.0.1 --port 8080",
+      "version": "version: 0.5.0-dev (build 11146, commit 7fe450e19)\nbuilt with GNU 14.2.0 for Linux x86_64"
+    },
+    "gpu": {
+      "memoryUsedAfterLoad": "33205 MiB",
+      "nvidiaSmi": "NVIDIA A40, 46068 MiB, 580.159.04",
+      "runpodGpuTypeId": "NVIDIA A40"
+    },
+    "model": {
+      "baseRepo": "Qwen/Qwen3.8-27B",
+      "baseRevision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+      "id": "qwen3.8-27b",
+      "name": "Qwen3.8 27B",
+      "nativePrecision": "bf16"
+    },
+    "runpod": {
+      "cloudType": "SECURE",
+      "costPerHr": 0.49,
+      "gpuCostNote": "costPerHr x time this quant was loaded and serving (excludes pod startup and downloads; see session.json)",
+      "gpuCostUsd": 3.7063,
+      "podId": "vny1m2f7c6rw9q",
+      "servedSec": 27230
+    },
+    "serving": {
+      "contextPerSlot": 65536,
+      "link": "ssh tunnel runner -> pod 127.0.0.1:8080",
+      "maxOutputTokens": 32768,
+      "parallelSlots": 4,
+      "sampling": "--temp 0.7 --top-p 0.8 --top-k 20 --min-p 0.0 --presence-penalty 1.5 --repeat-penalty 1.0",
+      "samplingSource": "llama-server defaults from Qwen3.8 model card, instruct (non-thinking) mode; the client sends no sampling params",
+      "slotContextReported": 65536,
+      "thinking": {
+        "control": "chat_template_kwargs.enable_thinking",
+        "mode": "off",
+        "reasoningFormat": "deepseek"
+      }
+    },
+    "weights": {
+      "filename": "Qwen3.8-27B-Q4_K_M.gguf",
+      "format": "gguf",
+      "hfRepo": "bartowski/Qwen3.8-27B-GGUF",
+      "hfRevision": "0c92138c51f112d2f0dc84d5f6d1ebe4b9912b9a",
+      "quantType": "Q4_K_M",
+      "sha256": "880a52af8317974f7b4b064a6bc29ff49e188b91aa218e08eea3078b6b1cc673",
+      "sha256VerifiedOnPod": true
+    }
+  },
+  "status": "completed",
+  "tasks": [
+    {
+      "cacheTokens": 54532,
+      "costUsd": null,
+      "durationSec": 944.3,
+      "error": {
+        "message": "Agent execution timed out after 900.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 65951,
+      "outcome": "failed",
+      "outputTokens": 8346,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "adaptive-rejection-sampler",
+      "timedOut": true,
+      "trialName": "adaptive-rejection-sampler__HgPnEYw"
+    },
+    {
+      "cacheTokens": 533416,
+      "costUsd": null,
+      "durationSec": 1964.3,
+      "error": null,
+      "inputTokens": 557925,
+      "outcome": "passed",
+      "outputTokens": 12737,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "bn-fit-modify",
+      "timedOut": false,
+      "trialName": "bn-fit-modify__HhjXYUH"
+    },
+    {
+      "cacheTokens": 164035,
+      "costUsd": null,
+      "durationSec": 1230.2,
+      "error": {
+        "message": "Agent execution timed out after 1200.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 183377,
+      "outcome": "failed",
+      "outputTokens": 11953,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "break-filter-js-from-html",
+      "timedOut": true,
+      "trialName": "break-filter-js-from-html__X6Z2dyV"
+    },
+    {
+      "cacheTokens": 265701,
+      "costUsd": null,
+      "durationSec": 930.9,
+      "error": {
+        "message": "Agent execution timed out after 900.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 286303,
+      "outcome": "failed",
+      "outputTokens": 5110,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "build-cython-ext",
+      "timedOut": true,
+      "trialName": "build-cython-ext__fc9nBX7"
+    },
+    {
+      "cacheTokens": 183963,
+      "costUsd": null,
+      "durationSec": 689.7,
+      "error": null,
+      "inputTokens": 200170,
+      "outcome": "failed",
+      "outputTokens": 4878,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "build-pmars",
+      "timedOut": false,
+      "trialName": "build-pmars__qogGkzz"
+    },
+    {
+      "cacheTokens": 1572803,
+      "costUsd": null,
+      "durationSec": 2665.6,
+      "error": null,
+      "inputTokens": 1655401,
+      "outcome": "failed",
+      "outputTokens": 14241,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "build-pov-ray",
+      "timedOut": false,
+      "trialName": "build-pov-ray__aksK3by"
+    },
+    {
+      "cacheTokens": 154260,
+      "costUsd": null,
+      "durationSec": 1354.3,
+      "error": {
+        "message": "Agent execution timed out after 1200.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 163269,
+      "outcome": "failed",
+      "outputTokens": 4198,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "caffe-cifar-10",
+      "timedOut": true,
+      "trialName": "caffe-cifar-10__RJZmHXE"
+    },
+    {
+      "cacheTokens": 27380,
+      "costUsd": null,
+      "durationSec": 320.3,
+      "error": null,
+      "inputTokens": 31082,
+      "outcome": "passed",
+      "outputTokens": 3185,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "cancel-async-tasks",
+      "timedOut": false,
+      "trialName": "cancel-async-tasks__DnRvdjw"
+    },
+    {
+      "cacheTokens": 212231,
+      "costUsd": null,
+      "durationSec": 931.1,
+      "error": {
+        "message": "Agent execution timed out after 900.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 228258,
+      "outcome": "failed",
+      "outputTokens": 7619,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "chess-best-move",
+      "timedOut": true,
+      "trialName": "chess-best-move__8fpczic"
+    },
+    {
+      "cacheTokens": 198993,
+      "costUsd": null,
+      "durationSec": 3631.6,
+      "error": {
+        "message": "Agent execution timed out after 3600.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 218771,
+      "outcome": "failed",
+      "outputTokens": 24615,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "circuit-fibsqrt",
+      "timedOut": true,
+      "trialName": "circuit-fibsqrt__TLwXovq"
+    },
+    {
+      "cacheTokens": 143626,
+      "costUsd": null,
+      "durationSec": 926.2,
+      "error": {
+        "message": "Agent execution timed out after 900.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 154414,
+      "outcome": "failed",
+      "outputTokens": 9654,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "cobol-modernization",
+      "timedOut": true,
+      "trialName": "cobol-modernization__pweHErW"
+    },
+    {
+      "cacheTokens": 132608,
+      "costUsd": null,
+      "durationSec": 943.1,
+      "error": null,
+      "inputTokens": 143003,
+      "outcome": "passed",
+      "outputTokens": 6655,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "code-from-image",
+      "timedOut": false,
+      "trialName": "code-from-image__ji4MFTa"
+    },
+    {
+      "cacheTokens": 702089,
+      "costUsd": null,
+      "durationSec": 2407.1,
+      "error": null,
+      "inputTokens": 723989,
+      "outcome": "failed",
+      "outputTokens": 8007,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "compile-compcert",
+      "timedOut": false,
+      "trialName": "compile-compcert__CPMFG7U"
+    },
+    {
+      "cacheTokens": 26085,
+      "costUsd": null,
+      "durationSec": 275.5,
+      "error": null,
+      "inputTokens": 28728,
+      "outcome": "failed",
+      "outputTokens": 2369,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "configure-git-webserver",
+      "timedOut": false,
+      "trialName": "configure-git-webserver__DfCoRku"
+    },
+    {
+      "cacheTokens": 38295,
+      "costUsd": null,
+      "durationSec": 370.5,
+      "error": null,
+      "inputTokens": 44904,
+      "outcome": "passed",
+      "outputTokens": 4389,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "constraints-scheduling",
+      "timedOut": false,
+      "trialName": "constraints-scheduling__NGFTy6B"
+    },
+    {
+      "cacheTokens": 136449,
+      "costUsd": null,
+      "durationSec": 670.0,
+      "error": null,
+      "inputTokens": 153513,
+      "outcome": "passed",
+      "outputTokens": 4494,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "count-dataset-tokens",
+      "timedOut": false,
+      "trialName": "count-dataset-tokens__gUczi9h"
+    },
+    {
+      "cacheTokens": 90154,
+      "costUsd": null,
+      "durationSec": 597.6,
+      "error": null,
+      "inputTokens": 95189,
+      "outcome": "passed",
+      "outputTokens": 2774,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "crack-7z-hash",
+      "timedOut": false,
+      "trialName": "crack-7z-hash__4e7D7mb"
+    },
+    {
+      "cacheTokens": 835096,
+      "costUsd": null,
+      "durationSec": 1831.4,
+      "error": {
+        "message": "Agent execution timed out after 1800.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 867848,
+      "outcome": "failed",
+      "outputTokens": 15796,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "custom-memory-heap-crash",
+      "timedOut": true,
+      "trialName": "custom-memory-heap-crash__djNthdo"
+    },
+    {
+      "cacheTokens": 371759,
+      "costUsd": null,
+      "durationSec": 932.9,
+      "error": {
+        "message": "Agent execution timed out after 900.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 402256,
+      "outcome": "failed",
+      "outputTokens": 8652,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "db-wal-recovery",
+      "timedOut": true,
+      "trialName": "db-wal-recovery__DfXBTKf"
+    },
+    {
+      "cacheTokens": 282303,
+      "costUsd": null,
+      "durationSec": 1991.0,
+      "error": null,
+      "inputTokens": 335076,
+      "outcome": "passed",
+      "outputTokens": 16447,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "distribution-search",
+      "timedOut": false,
+      "trialName": "distribution-search__2GsH5Fq"
+    },
+    {
+      "cacheTokens": 450813,
+      "costUsd": null,
+      "durationSec": 1839.4,
+      "error": {
+        "message": "Agent execution timed out after 1800.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 479757,
+      "outcome": "failed",
+      "outputTokens": 24631,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "dna-assembly",
+      "timedOut": true,
+      "trialName": "dna-assembly__76FgVtP"
+    },
+    {
+      "cacheTokens": 472010,
+      "costUsd": null,
+      "durationSec": 1373.7,
+      "error": null,
+      "inputTokens": 496487,
+      "outcome": "failed",
+      "outputTokens": 14675,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "dna-insert",
+      "timedOut": false,
+      "trialName": "dna-insert__nCkCzB9"
+    },
+    {
+      "cacheTokens": 421275,
+      "costUsd": null,
+      "durationSec": 929.8,
+      "error": {
+        "message": "Agent execution timed out after 900.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 449530,
+      "outcome": "passed",
+      "outputTokens": 9847,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "extract-elf",
+      "timedOut": true,
+      "trialName": "extract-elf__8gMNEPm"
+    },
+    {
+      "cacheTokens": 267600,
+      "costUsd": null,
+      "durationSec": 1835.6,
+      "error": {
+        "message": "Agent execution timed out after 1800.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 281840,
+      "outcome": "failed",
+      "outputTokens": 6699,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "extract-moves-from-video",
+      "timedOut": true,
+      "trialName": "extract-moves-from-video__vRMBzjQ"
+    },
+    {
+      "cacheTokens": 61297,
+      "costUsd": null,
+      "durationSec": 1844.0,
+      "error": {
+        "message": "Agent execution timed out after 1800.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 78014,
+      "outcome": "failed",
+      "outputTokens": 11292,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "feal-differential-cryptanalysis",
+      "timedOut": true,
+      "trialName": "feal-differential-cryptanalysis__UJ8hUoZ"
+    },
+    {
+      "cacheTokens": 330,
+      "costUsd": null,
+      "durationSec": 1826.2,
+      "error": {
+        "message": "Agent execution timed out after 1800.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 870,
+      "outcome": "failed",
+      "outputTokens": 257,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "feal-linear-cryptanalysis",
+      "timedOut": true,
+      "trialName": "feal-linear-cryptanalysis__m2Snc9Y"
+    },
+    {
+      "cacheTokens": 566295,
+      "costUsd": null,
+      "durationSec": 1836.6,
+      "error": {
+        "message": "Agent execution timed out after 1800.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 588021,
+      "outcome": "failed",
+      "outputTokens": 17941,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "filter-js-from-html",
+      "timedOut": true,
+      "trialName": "filter-js-from-html__dpZ6yuP"
+    },
+    {
+      "cacheTokens": 59801,
+      "costUsd": null,
+      "durationSec": 554.2,
+      "error": null,
+      "inputTokens": 74722,
+      "outcome": "failed",
+      "outputTokens": 3223,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "financial-document-processor",
+      "timedOut": false,
+      "trialName": "financial-document-processor__h8ayWHP"
+    },
+    {
+      "cacheTokens": 101316,
+      "costUsd": null,
+      "durationSec": 471.4,
+      "error": null,
+      "inputTokens": 110971,
+      "outcome": "passed",
+      "outputTokens": 3225,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "fix-code-vulnerability",
+      "timedOut": false,
+      "trialName": "fix-code-vulnerability__9Wy2Tqh"
+    },
+    {
+      "cacheTokens": 45600,
+      "costUsd": null,
+      "durationSec": 280.8,
+      "error": null,
+      "inputTokens": 50816,
+      "outcome": "passed",
+      "outputTokens": 2388,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "fix-git",
+      "timedOut": false,
+      "trialName": "fix-git__kasMzp7"
+    },
+    {
+      "cacheTokens": 979306,
+      "costUsd": null,
+      "durationSec": 1221.8,
+      "error": null,
+      "inputTokens": 1012638,
+      "outcome": "failed",
+      "outputTokens": 8302,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "fix-ocaml-gc",
+      "timedOut": false,
+      "trialName": "fix-ocaml-gc__t82Rrmc"
+    },
+    {
+      "cacheTokens": 219140,
+      "costUsd": null,
+      "durationSec": 940.8,
+      "error": {
+        "message": "Agent execution timed out after 900.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 252199,
+      "outcome": "failed",
+      "outputTokens": 7998,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "gcode-to-text",
+      "timedOut": true,
+      "trialName": "gcode-to-text__dg8Uksa"
+    },
+    {
+      "cacheTokens": 32153,
+      "costUsd": null,
+      "durationSec": 278.0,
+      "error": null,
+      "inputTokens": 35102,
+      "outcome": "passed",
+      "outputTokens": 2433,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "git-leak-recovery",
+      "timedOut": false,
+      "trialName": "git-leak-recovery__iNEaTEm"
+    },
+    {
+      "cacheTokens": 41895,
+      "costUsd": null,
+      "durationSec": 444.2,
+      "error": null,
+      "inputTokens": 46161,
+      "outcome": "passed",
+      "outputTokens": 3028,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "git-multibranch",
+      "timedOut": false,
+      "trialName": "git-multibranch__nKFuXMM"
+    },
+    {
+      "cacheTokens": 132832,
+      "costUsd": null,
+      "durationSec": 935.3,
+      "error": {
+        "message": "Agent execution timed out after 900.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 154081,
+      "outcome": "failed",
+      "outputTokens": 6863,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "gpt2-codegolf",
+      "timedOut": true,
+      "trialName": "gpt2-codegolf__DioGghg"
+    },
+    {
+      "cacheTokens": 146600,
+      "costUsd": null,
+      "durationSec": 948.2,
+      "error": {
+        "message": "Agent execution timed out after 900.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 159392,
+      "outcome": "passed",
+      "outputTokens": 9058,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "headless-terminal",
+      "timedOut": true,
+      "trialName": "headless-terminal__W8QJTCC"
+    },
+    {
+      "cacheTokens": 60569,
+      "costUsd": null,
+      "durationSec": 409.6,
+      "error": null,
+      "inputTokens": 64858,
+      "outcome": "passed",
+      "outputTokens": 3736,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "hf-model-inference",
+      "timedOut": false,
+      "trialName": "hf-model-inference__SUJqQE4"
+    },
+    {
+      "cacheTokens": 462091,
+      "costUsd": null,
+      "durationSec": 1485.6,
+      "error": null,
+      "inputTokens": 481092,
+      "outcome": "failed",
+      "outputTokens": 8447,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "install-windows-3.11",
+      "timedOut": false,
+      "trialName": "install-windows-3.11__8StQMqk"
+    },
+    {
+      "cacheTokens": 40246,
+      "costUsd": null,
+      "durationSec": 321.7,
+      "error": null,
+      "inputTokens": 43999,
+      "outcome": "passed",
+      "outputTokens": 2551,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "kv-store-grpc",
+      "timedOut": false,
+      "trialName": "kv-store-grpc__n5FubDZ"
+    },
+    {
+      "cacheTokens": 293477,
+      "costUsd": null,
+      "durationSec": 1352.2,
+      "error": {
+        "message": "Agent execution timed out after 1200.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 302444,
+      "outcome": "failed",
+      "outputTokens": 8170,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "large-scale-text-editing",
+      "timedOut": true,
+      "trialName": "large-scale-text-editing__mihH6Lo"
+    },
+    {
+      "cacheTokens": 20319,
+      "costUsd": null,
+      "durationSec": 930.4,
+      "error": {
+        "message": "Agent execution timed out after 900.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 23878,
+      "outcome": "failed",
+      "outputTokens": 2289,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "largest-eigenval",
+      "timedOut": true,
+      "trialName": "largest-eigenval__YBEVtsn"
+    },
+    {
+      "cacheTokens": 253847,
+      "costUsd": null,
+      "durationSec": 1828.5,
+      "error": {
+        "message": "Agent execution timed out after 1800.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 284034,
+      "outcome": "failed",
+      "outputTokens": 19216,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "llm-inference-batching-scheduler",
+      "timedOut": true,
+      "trialName": "llm-inference-batching-scheduler__ha7acFD"
+    },
+    {
+      "cacheTokens": 19316,
+      "costUsd": null,
+      "durationSec": 282.0,
+      "error": null,
+      "inputTokens": 24664,
+      "outcome": "passed",
+      "outputTokens": 2808,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "log-summary-date-ranges",
+      "timedOut": false,
+      "trialName": "log-summary-date-ranges__82mjDAn"
+    },
+    {
+      "cacheTokens": 1360188,
+      "costUsd": null,
+      "durationSec": 1871.1,
+      "error": {
+        "message": "Agent execution timed out after 1800.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 1403916,
+      "outcome": "failed",
+      "outputTokens": 17960,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "mailman",
+      "timedOut": true,
+      "trialName": "mailman__z6ELyNi"
+    },
+    {
+      "cacheTokens": 354336,
+      "costUsd": null,
+      "durationSec": 964.0,
+      "error": {
+        "message": "Agent execution timed out after 900.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 372667,
+      "outcome": "failed",
+      "outputTokens": 6406,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "make-doom-for-mips",
+      "timedOut": true,
+      "trialName": "make-doom-for-mips__2s72JVF"
+    },
+    {
+      "cacheTokens": 357691,
+      "costUsd": null,
+      "durationSec": 1859.9,
+      "error": {
+        "message": "Agent execution timed out after 1800.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 391335,
+      "outcome": "failed",
+      "outputTokens": 7200,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "make-mips-interpreter",
+      "timedOut": true,
+      "trialName": "make-mips-interpreter__Wn2cR5Y"
+    },
+    {
+      "cacheTokens": 533887,
+      "costUsd": null,
+      "durationSec": 2436.8,
+      "error": {
+        "message": "Agent execution timed out after 1800.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 550149,
+      "outcome": "passed",
+      "outputTokens": 7391,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "mcmc-sampling-stan",
+      "timedOut": true,
+      "trialName": "mcmc-sampling-stan__hpZWDpE"
+    },
+    {
+      "cacheTokens": 167817,
+      "costUsd": null,
+      "durationSec": 497.6,
+      "error": null,
+      "inputTokens": 181324,
+      "outcome": "failed",
+      "outputTokens": 4647,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "merge-diff-arc-agi-task",
+      "timedOut": false,
+      "trialName": "merge-diff-arc-agi-task__VbHokRG"
+    },
+    {
+      "cacheTokens": 68826,
+      "costUsd": null,
+      "durationSec": 943.4,
+      "error": {
+        "message": "Agent execution timed out after 900.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 81217,
+      "outcome": "failed",
+      "outputTokens": 8054,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "model-extraction-relu-logits",
+      "timedOut": true,
+      "trialName": "model-extraction-relu-logits__SYL6QXQ"
+    },
+    {
+      "cacheTokens": 14130,
+      "costUsd": null,
+      "durationSec": 189.8,
+      "error": null,
+      "inputTokens": 17647,
+      "outcome": "passed",
+      "outputTokens": 1988,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "modernize-scientific-stack",
+      "timedOut": false,
+      "trialName": "modernize-scientific-stack__sFzEMvB"
+    },
+    {
+      "cacheTokens": 870011,
+      "costUsd": null,
+      "durationSec": 2345.8,
+      "error": null,
+      "inputTokens": 932257,
+      "outcome": "failed",
+      "outputTokens": 16323,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "mteb-leaderboard",
+      "timedOut": false,
+      "trialName": "mteb-leaderboard__A243hF6"
+    },
+    {
+      "cacheTokens": 19985,
+      "costUsd": null,
+      "durationSec": 319.3,
+      "error": null,
+      "inputTokens": 24049,
+      "outcome": "failed",
+      "outputTokens": 2293,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "mteb-retrieve",
+      "timedOut": false,
+      "trialName": "mteb-retrieve__zchhVmz"
+    },
+    {
+      "cacheTokens": 25278,
+      "costUsd": null,
+      "durationSec": 269.8,
+      "error": null,
+      "inputTokens": 30113,
+      "outcome": "passed",
+      "outputTokens": 3499,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "multi-source-data-merger",
+      "timedOut": false,
+      "trialName": "multi-source-data-merger__ow8UpPY"
+    },
+    {
+      "cacheTokens": 22017,
+      "costUsd": null,
+      "durationSec": 316.5,
+      "error": null,
+      "inputTokens": 26107,
+      "outcome": "passed",
+      "outputTokens": 2638,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "nginx-request-logging",
+      "timedOut": false,
+      "trialName": "nginx-request-logging__sjQtW28"
+    },
+    {
+      "cacheTokens": 29412,
+      "costUsd": null,
+      "durationSec": 235.4,
+      "error": null,
+      "inputTokens": 33635,
+      "outcome": "passed",
+      "outputTokens": 2910,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "openssl-selfsigned-cert",
+      "timedOut": false,
+      "trialName": "openssl-selfsigned-cert__uLSQeba"
+    },
+    {
+      "cacheTokens": 253050,
+      "costUsd": null,
+      "durationSec": 635.7,
+      "error": null,
+      "inputTokens": 277992,
+      "outcome": "failed",
+      "outputTokens": 5403,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "overfull-hbox",
+      "timedOut": false,
+      "trialName": "overfull-hbox__wug5V4A"
+    },
+    {
+      "cacheTokens": 182448,
+      "costUsd": null,
+      "durationSec": 934.0,
+      "error": {
+        "message": "Agent execution timed out after 900.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 197718,
+      "outcome": "failed",
+      "outputTokens": 9921,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "password-recovery",
+      "timedOut": true,
+      "trialName": "password-recovery__gJ5VQ9z"
+    },
+    {
+      "cacheTokens": 242644,
+      "costUsd": null,
+      "durationSec": 1831.2,
+      "error": {
+        "message": "Agent execution timed out after 1800.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 294126,
+      "outcome": "failed",
+      "outputTokens": 14190,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "path-tracing",
+      "timedOut": true,
+      "trialName": "path-tracing__Ji2b4pz"
+    },
+    {
+      "cacheTokens": 1030906,
+      "costUsd": null,
+      "durationSec": 1587.6,
+      "error": null,
+      "inputTokens": 1082238,
+      "outcome": "failed",
+      "outputTokens": 13461,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "path-tracing-reverse",
+      "timedOut": false,
+      "trialName": "path-tracing-reverse__qRTxNum"
+    },
+    {
+      "cacheTokens": 174068,
+      "costUsd": null,
+      "durationSec": 937.7,
+      "error": {
+        "message": "Agent execution timed out after 900.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 185550,
+      "outcome": "failed",
+      "outputTokens": 8718,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "polyglot-c-py",
+      "timedOut": true,
+      "trialName": "polyglot-c-py__QwCXSbe"
+    },
+    {
+      "cacheTokens": 152126,
+      "costUsd": null,
+      "durationSec": 939.1,
+      "error": {
+        "message": "Agent execution timed out after 900.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 166460,
+      "outcome": "failed",
+      "outputTokens": 9614,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "polyglot-rust-c",
+      "timedOut": true,
+      "trialName": "polyglot-rust-c__QhZarhH"
+    },
+    {
+      "cacheTokens": 23648,
+      "costUsd": null,
+      "durationSec": 345.6,
+      "error": null,
+      "inputTokens": 30821,
+      "outcome": "passed",
+      "outputTokens": 2336,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "portfolio-optimization",
+      "timedOut": false,
+      "trialName": "portfolio-optimization__yYMKjJC"
+    },
+    {
+      "cacheTokens": 542428,
+      "costUsd": null,
+      "durationSec": 1827.8,
+      "error": {
+        "message": "Agent execution timed out after 1800.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 574083,
+      "outcome": "failed",
+      "outputTokens": 14090,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "protein-assembly",
+      "timedOut": true,
+      "trialName": "protein-assembly__gcAw7wT"
+    },
+    {
+      "cacheTokens": 12684,
+      "costUsd": null,
+      "durationSec": 173.1,
+      "error": null,
+      "inputTokens": 15072,
+      "outcome": "passed",
+      "outputTokens": 1369,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "prove-plus-comm",
+      "timedOut": false,
+      "trialName": "prove-plus-comm__eE8nqCc"
+    },
+    {
+      "cacheTokens": 65776,
+      "costUsd": null,
+      "durationSec": 474.7,
+      "error": null,
+      "inputTokens": 70871,
+      "outcome": "passed",
+      "outputTokens": 3985,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "pypi-server",
+      "timedOut": false,
+      "trialName": "pypi-server__GAYQEit"
+    },
+    {
+      "cacheTokens": 91089,
+      "costUsd": null,
+      "durationSec": 779.3,
+      "error": null,
+      "inputTokens": 102183,
+      "outcome": "passed",
+      "outputTokens": 5739,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "pytorch-model-cli",
+      "timedOut": false,
+      "trialName": "pytorch-model-cli__x4LPkqB"
+    },
+    {
+      "cacheTokens": 57241,
+      "costUsd": null,
+      "durationSec": 664.0,
+      "error": null,
+      "inputTokens": 64955,
+      "outcome": "passed",
+      "outputTokens": 4690,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "pytorch-model-recovery",
+      "timedOut": false,
+      "trialName": "pytorch-model-recovery__88jKTLf"
+    },
+    {
+      "cacheTokens": 159954,
+      "costUsd": null,
+      "durationSec": 915.7,
+      "error": {
+        "message": "Agent execution timed out after 900.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 167029,
+      "outcome": "failed",
+      "outputTokens": 6908,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "qemu-alpine-ssh",
+      "timedOut": true,
+      "trialName": "qemu-alpine-ssh__K7wBkUK"
+    },
+    {
+      "cacheTokens": 98922,
+      "costUsd": null,
+      "durationSec": 915.6,
+      "error": {
+        "message": "Agent execution timed out after 900.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 103035,
+      "outcome": "failed",
+      "outputTokens": 7071,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "qemu-startup",
+      "timedOut": true,
+      "trialName": "qemu-startup__5rFHkst"
+    },
+    {
+      "cacheTokens": 122614,
+      "costUsd": null,
+      "durationSec": 1544.5,
+      "error": {
+        "message": "Agent execution timed out after 900.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 136286,
+      "outcome": "failed",
+      "outputTokens": 4164,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "query-optimize",
+      "timedOut": true,
+      "trialName": "query-optimize__NV76d7j"
+    },
+    {
+      "cacheTokens": 229670,
+      "costUsd": null,
+      "durationSec": 855.2,
+      "error": null,
+      "inputTokens": 250901,
+      "outcome": "failed",
+      "outputTokens": 8289,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "raman-fitting",
+      "timedOut": false,
+      "trialName": "raman-fitting__yk9J6Xw"
+    },
+    {
+      "cacheTokens": 1144009,
+      "costUsd": null,
+      "durationSec": 3377.3,
+      "error": null,
+      "inputTokens": 1345617,
+      "outcome": "failed",
+      "outputTokens": 27024,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "regex-chess",
+      "timedOut": false,
+      "trialName": "regex-chess__xB9kRNf"
+    },
+    {
+      "cacheTokens": 57260,
+      "costUsd": null,
+      "durationSec": 938.5,
+      "error": {
+        "message": "Agent execution timed out after 900.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 66408,
+      "outcome": "failed",
+      "outputTokens": 8112,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "regex-log",
+      "timedOut": true,
+      "trialName": "regex-log__2TQiAqi"
+    },
+    {
+      "cacheTokens": 113704,
+      "costUsd": null,
+      "durationSec": 662.4,
+      "error": null,
+      "inputTokens": 124531,
+      "outcome": "passed",
+      "outputTokens": 5454,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "reshard-c4-data",
+      "timedOut": false,
+      "trialName": "reshard-c4-data__7euFVU5"
+    },
+    {
+      "cacheTokens": 775058,
+      "costUsd": null,
+      "durationSec": 1836.7,
+      "error": {
+        "message": "Agent execution timed out after 1800.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 817174,
+      "outcome": "failed",
+      "outputTokens": 11032,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "rstan-to-pystan",
+      "timedOut": true,
+      "trialName": "rstan-to-pystan__Fcax9mS"
+    },
+    {
+      "cacheTokens": 1198411,
+      "costUsd": null,
+      "durationSec": 2480.9,
+      "error": null,
+      "inputTokens": 1248498,
+      "outcome": "failed",
+      "outputTokens": 18138,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "sam-cell-seg",
+      "timedOut": false,
+      "trialName": "sam-cell-seg__gXRN5hP"
+    },
+    {
+      "cacheTokens": 75114,
+      "costUsd": null,
+      "durationSec": 443.6,
+      "error": null,
+      "inputTokens": 83724,
+      "outcome": "failed",
+      "outputTokens": 4258,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "sanitize-git-repo",
+      "timedOut": false,
+      "trialName": "sanitize-git-repo__PhJGkgk"
+    },
+    {
+      "cacheTokens": 1142977,
+      "costUsd": null,
+      "durationSec": 2430.9,
+      "error": {
+        "message": "Agent execution timed out after 2400.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 1174804,
+      "outcome": "failed",
+      "outputTokens": 17937,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "schemelike-metacircular-eval",
+      "timedOut": true,
+      "trialName": "schemelike-metacircular-eval__9pd9GLs"
+    },
+    {
+      "cacheTokens": 150706,
+      "costUsd": null,
+      "durationSec": 820.7,
+      "error": null,
+      "inputTokens": 160941,
+      "outcome": "passed",
+      "outputTokens": 5564,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "sparql-university",
+      "timedOut": false,
+      "trialName": "sparql-university__cRvgrY6"
+    },
+    {
+      "cacheTokens": 59928,
+      "costUsd": null,
+      "durationSec": 927.1,
+      "error": {
+        "message": "Agent execution timed out after 900.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 72629,
+      "outcome": "failed",
+      "outputTokens": 9957,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "sqlite-db-truncate",
+      "timedOut": true,
+      "trialName": "sqlite-db-truncate__irBdFyC"
+    },
+    {
+      "cacheTokens": 79933,
+      "costUsd": null,
+      "durationSec": 461.5,
+      "error": null,
+      "inputTokens": 90152,
+      "outcome": "passed",
+      "outputTokens": 2048,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "sqlite-with-gcov",
+      "timedOut": false,
+      "trialName": "sqlite-with-gcov__8wM35bV"
+    },
+    {
+      "cacheTokens": 50362,
+      "costUsd": null,
+      "durationSec": 1018.9,
+      "error": {
+        "message": "Agent execution timed out after 900.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 63623,
+      "outcome": "failed",
+      "outputTokens": 6925,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "torch-pipeline-parallelism",
+      "timedOut": true,
+      "trialName": "torch-pipeline-parallelism__cMTu8nP"
+    },
+    {
+      "cacheTokens": 28466,
+      "costUsd": null,
+      "durationSec": 1031.2,
+      "error": {
+        "message": "Agent execution timed out after 900.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 34650,
+      "outcome": "failed",
+      "outputTokens": 5780,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "torch-tensor-parallelism",
+      "timedOut": true,
+      "trialName": "torch-tensor-parallelism__rKvScMj"
+    },
+    {
+      "cacheTokens": 858986,
+      "costUsd": null,
+      "durationSec": 2845.4,
+      "error": null,
+      "inputTokens": 942820,
+      "outcome": "failed",
+      "outputTokens": 7655,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "train-fasttext",
+      "timedOut": false,
+      "trialName": "train-fasttext__nk8jjA5"
+    },
+    {
+      "cacheTokens": 168358,
+      "costUsd": null,
+      "durationSec": 954.8,
+      "error": {
+        "message": "Agent execution timed out after 900.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 177800,
+      "outcome": "failed",
+      "outputTokens": 6342,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "tune-mjcf",
+      "timedOut": true,
+      "trialName": "tune-mjcf__fuDUv9k"
+    },
+    {
+      "cacheTokens": 537556,
+      "costUsd": null,
+      "durationSec": 3019.9,
+      "error": null,
+      "inputTokens": 582177,
+      "outcome": "failed",
+      "outputTokens": 22760,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "video-processing",
+      "timedOut": false,
+      "trialName": "video-processing__HeSyURa"
+    },
+    {
+      "cacheTokens": 50401,
+      "costUsd": null,
+      "durationSec": 197.1,
+      "error": null,
+      "inputTokens": 60375,
+      "outcome": "passed",
+      "outputTokens": 2208,
+      "reward": 1.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "vulnerable-secret",
+      "timedOut": false,
+      "trialName": "vulnerable-secret__KRcBbey"
+    },
+    {
+      "cacheTokens": 1369743,
+      "costUsd": null,
+      "durationSec": 3622.8,
+      "error": {
+        "message": "Agent execution timed out after 3600.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 1468804,
+      "outcome": "failed",
+      "outputTokens": 35557,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "winning-avg-corewars",
+      "timedOut": true,
+      "trialName": "winning-avg-corewars__pEyDHWm"
+    },
+    {
+      "cacheTokens": 42022,
+      "costUsd": null,
+      "durationSec": 938.6,
+      "error": {
+        "message": "Agent execution timed out after 900.0 seconds",
+        "type": "AgentTimeoutError"
+      },
+      "inputTokens": 47262,
+      "outcome": "failed",
+      "outputTokens": 10347,
+      "reward": 0.0,
+      "taskGitCommit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "taskName": "write-compressor",
+      "timedOut": true,
+      "trialName": "write-compressor__cfPLDZy"
+    }
+  ],
+  "thinking": {
+    "effort": null,
+    "mode": "off"
+  }
+}
