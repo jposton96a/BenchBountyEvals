@@ -9,8 +9,10 @@ GitHub Release for the corresponding run, not committed to the repository.
 ## Contract
 
 - `published/index.json` is the discovery document.
-- `published/models/<model-id>.json` contains model-level run references and
-  aggregates.
+- `published/models/<model-id>.json` is the hand-maintained model record:
+  thinking modes and the quants (`quants[]`, with exact weight pins) that runs
+  refer to by `modelId`/`quantId`. `publish_run.sh` never writes it; run lists
+  per model are in `index.json`.
 - `published/benchmarks/<benchmark-id>.json` contains benchmark-level run
   references.
 - `published/runs/<run-id>/result.json` contains the normalized exact-run

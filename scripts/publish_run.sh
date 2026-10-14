@@ -117,11 +117,14 @@ for p in sorted((root / 'published/runs').glob('*/result.json')):
         models.setdefault(model['id'], {'id': model['id'], 'name': model.get('name', model['id']), 'runIds': []})['runIds'].append(rid)
     if benchmark.get('id'):
         benchmarks.setdefault(benchmark['id'], {'id': benchmark['id'], 'name': benchmark.get('name', benchmark['id']), 'runIds': []})['runIds'].append(rid)
-for obj, folder in ((models, 'models'), (benchmarks, 'benchmarks')):
-    (root / 'published' / folder).mkdir(parents=True, exist_ok=True)
-    for ident, item in obj.items():
-        item['runCount'] = len(item['runIds']); item['url'] = f'{folder}/{ident}.json'
-        (root / 'published' / folder / f'{ident}.json').write_text(json.dumps(item, indent=2, sort_keys=True) + '\n')
+# published/models/<id>.json are hand-maintained model records; the index only links to them.
+for ident, item in models.items():
+    item['runCount'] = len(item['runIds'])
+    item['url'] = f'models/{ident}.json' if (root / 'published/models' / f'{ident}.json').exists() else None
+(root / 'published/benchmarks').mkdir(parents=True, exist_ok=True)
+for ident, item in benchmarks.items():
+    item['runCount'] = len(item['runIds']); item['url'] = f'benchmarks/{ident}.json'
+    (root / 'published/benchmarks' / f'{ident}.json').write_text(json.dumps(item, indent=2, sort_keys=True) + '\n')
 # "real" only when every listed run is an Agent Bench measurement.
 data_status = 'real' if runs and real_count == len(runs) else 'demo'
 index = {'schemaVersion': 1, 'generatedAt': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'dataStatus': data_status, 'realRunCount': real_count, 'runs': runs, 'models': list(models.values()), 'benchmarks': list(benchmarks.values())}

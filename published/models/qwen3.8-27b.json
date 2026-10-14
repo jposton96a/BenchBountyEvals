@@ -1,11 +1,72 @@
 {
   "id": "qwen3.8-27b",
   "name": "Qwen3.8 27B",
-  "runCount": 3,
-  "runIds": [
-    "20261004-qwen38-27b-q4_k_m-terminal-bench-2-full-001",
-    "20261004-qwen38-27b-q6_k-terminal-bench-2-full-001",
-    "20261004-qwen38-27b-q8_0-terminal-bench-2-full-001"
+  "hfRepo": "Qwen/Qwen3.8-27B",
+  "baseModelId": null,
+  "vendor": "Qwen",
+  "releaseDate": "2026-08-05",
+  "openWeights": true,
+  "nativePrecision": "bf16",
+  "referenceQuantId": "bf16",
+  "thinking": {
+    "modes": [
+      "off",
+      "on"
+    ],
+    "efforts": [
+      "low",
+      "medium",
+      "xhigh"
+    ],
+    "control": "chat_template_kwargs.enable_thinking + reasoning_effort (template default xhigh)"
+  },
+  "quants": [
+    {
+      "id": "bf16",
+      "format": "safetensors",
+      "scheme": "BF16",
+      "repo": "Qwen/Qwen3.8-27B",
+      "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0"
+    },
+    {
+      "id": "bartowski-q8_0",
+      "format": "gguf",
+      "scheme": "Q8_0",
+      "repo": "bartowski/Qwen3.8-27B-GGUF",
+      "revision": "0c92138c51f112d2f0dc84d5f6d1ebe4b9912b9a",
+      "files": [
+        {
+          "name": "Qwen3.8-27B-Q8_0.gguf",
+          "sha256": "a830e736efa71ce29589ff20b8713333a427e0d46ab774723be23800ad54362d"
+        }
+      ]
+    },
+    {
+      "id": "bartowski-q6_k",
+      "format": "gguf",
+      "scheme": "Q6_K",
+      "repo": "bartowski/Qwen3.8-27B-GGUF",
+      "revision": "0c92138c51f112d2f0dc84d5f6d1ebe4b9912b9a",
+      "files": [
+        {
+          "name": "Qwen3.8-27B-Q6_K.gguf",
+          "sha256": "539041d2cf400b02f53a53cae54339ea65103d276645a34a68eac1c8d69a9db3"
+        }
+      ]
+    },
+    {
+      "id": "bartowski-q4_k_m",
+      "format": "gguf",
+      "scheme": "Q4_K_M",
+      "repo": "bartowski/Qwen3.8-27B-GGUF",
+      "revision": "0c92138c51f112d2f0dc84d5f6d1ebe4b9912b9a",
+      "files": [
+        {
+          "name": "Qwen3.8-27B-Q4_K_M.gguf",
+          "sha256": "880a52af8317974f7b4b064a6bc29ff49e188b91aa218e08eea3078b6b1cc673"
+        }
+      ]
+    }
   ],
-  "url": "models/qwen3.8-27b.json"
+  "verified": true
 }

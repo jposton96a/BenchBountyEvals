@@ -1,10 +1,39 @@
 {
   "id": "qwen3.6-35b-a3b",
   "name": "Qwen3.6 35B A3B",
-  "runCount": 2,
-  "runIds": [
-    "20260929-qwen36-aider-polyglot-4lang-001",
-    "20260929-qwen36-terminal-bench-2-easy4-001"
+  "hfRepo": "Qwen/Qwen3.6-35B-A3B",
+  "baseModelId": null,
+  "vendor": "Qwen",
+  "releaseDate": "2026-04-15",
+  "openWeights": true,
+  "nativePrecision": "bf16",
+  "referenceQuantId": "bf16",
+  "thinking": {
+    "modes": [
+      "off",
+      "on"
+    ],
+    "efforts": null,
+    "control": "chat_template_kwargs.enable_thinking"
+  },
+  "quants": [
+    {
+      "id": "bf16",
+      "format": "safetensors",
+      "scheme": "BF16",
+      "repo": "Qwen/Qwen3.6-35B-A3B",
+      "revision": "995ad96eacd98c81ed38be0c5b274b04031597b0"
+    },
+    {
+      "id": "openrouter-default",
+      "format": "api",
+      "scheme": "unknown",
+      "details": {
+        "provider": "openrouter",
+        "slug": "qwen/qwen3.6-35b-a3b",
+        "routing": "default routing across fp4, fp8 and unknown-precision providers; serving provider not recorded"
+      }
+    }
   ],
-  "url": "models/qwen3.6-35b-a3b.json"
+  "verified": true
 }

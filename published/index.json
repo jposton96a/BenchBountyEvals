@@ -35,7 +35,7 @@
         "20260927-oracle-aider-polyglot-4lang-001",
         "20260927-oracle-terminal-bench-2-easy4-001"
       ],
-      "url": "models/oracle.json"
+      "url": null
     },
     {
       "id": "qwen3.6-35b-a3b",

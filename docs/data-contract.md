@@ -64,3 +64,29 @@ this rule and may leave them `null`.
 - `thinking.mode` is `unsupported` for models without a thinking mode, else
   `off` or `on`. `effort` is set only when `mode` is `on`; `default` means
   thinking was enabled without an explicit effort.
+
+## Config axes (model records)
+
+Measured runs also name their configuration by reference
+(`eval-config-schema.md` in the spareflops notes is the design):
+
+```json
+"modelId": "qwen3.8-27b",
+"quantId": "bartowski-q4_k_m",
+"configId": "cfg-e000498e8d58f88a",
+"thinking": {"mode": "off", "effort": null},
+"harness": {"id": "terminus-2", "agentVersion": "2.0.0", "framework": "harbor@0.22.0",
+            "settings": {"maxTurns": 50, "agentTimeout": "task", "verifierTimeout": "task"}}
+```
+
+- `modelId` and `quantId` must exist in `published/models/<modelId>.json`, and
+  `serving.weights.sha256` must be one of the quant's `files[].sha256`.
+- `thinking.mode` must be in the model's `thinking.modes`; `effort` is `null`
+  (model default) or one of its `thinking.efforts`.
+- The harness version is `harness.agentVersion`. `harness.version` predates
+  this schema and holds the Harbor version; runs are immutable, so it stays.
+- `configId` is computed by `scripts/config_id.py` from the four axes
+  (model, quant file sha256s, thinking, harness id/agentVersion/settings).
+  Serving and hardware are provenance, not config. Runs with the same
+  `configId` on the same benchmark version are pooled as repeat trials.
+- `validate_json.sh` checks all of the above.

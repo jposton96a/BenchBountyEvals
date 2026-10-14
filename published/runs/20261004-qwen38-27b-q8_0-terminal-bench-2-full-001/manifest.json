@@ -107,6 +107,7 @@
     },
     "version": "2.0"
   },
+  "configId": "cfg-2f14933de0f16fdc",
   "cost": {
     "cacheTokens": 22681930,
     "currency": "USD",
@@ -150,7 +151,14 @@
       }
     },
     "agentVersion": "2.0.0",
+    "framework": "harbor@0.22.0",
+    "id": "terminus-2",
     "name": "harbor",
+    "settings": {
+      "agentTimeout": "task",
+      "maxTurns": 50,
+      "verifierTimeout": "task"
+    },
     "source": "github.com/harbor-framework/harbor@191d1b989bbba1d77c2db23e17aec308d7c08046",
     "version": "0.22.0"
   },
@@ -168,11 +176,13 @@
     "repo": "Qwen/Qwen3.8-27B",
     "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0"
   },
+  "modelId": "qwen3.8-27b",
   "provenance": {
     "kind": "agent_bench",
     "measuredByAgentBench": true,
     "note": null
   },
+  "quantId": "bartowski-q8_0",
   "quantization": {
     "format": "gguf",
     "level": "Q8_0",

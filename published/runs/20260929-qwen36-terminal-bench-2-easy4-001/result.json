@@ -22,6 +22,7 @@
     },
     "version": "2.0"
   },
+  "configId": "cfg-b0bb26c8ec2ed6c9",
   "cost": {
     "cacheTokens": 1213584,
     "currency": "USD",
@@ -51,7 +52,14 @@
       "max_turns": 50
     },
     "agentVersion": "2.0.0",
+    "framework": "harbor@0.22.0",
+    "id": "terminus-2",
     "name": "harbor",
+    "settings": {
+      "agentTimeout": "task",
+      "maxTurns": 50,
+      "verifierTimeout": "task"
+    },
     "source": "github.com/harbor-framework/harbor@191d1b989bbba1d77c2db23e17aec308d7c08046",
     "version": "0.22.0"
   },
@@ -66,11 +74,13 @@
     "openrouterSlug": "qwen/qwen3.6-35b-a3b",
     "repo": "Qwen/Qwen3.6-35B-A3B"
   },
+  "modelId": "qwen3.6-35b-a3b",
   "provenance": {
     "kind": "agent_bench",
     "measuredByAgentBench": true,
     "note": null
   },
+  "quantId": "openrouter-default",
   "quantization": null,
   "result": {
     "metric": "pass_rate",
@@ -140,6 +150,8 @@
     }
   ],
   "thinking": {
+    "effort": null,
+    "mode": "on",
     "reasoningEffort": null
   }
 }
