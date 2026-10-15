@@ -3,7 +3,8 @@
 
 usage: sync-requests.py [--repo owner/name] [--out PATH]   (MODELS_DIR overrides published/models)
 
-One issue per model, labelled agentbench-request. Every ```agentbench-request block in
+One issue per model, labelled agentbench-request or titled "Eval request: <model>" (GitHub
+drops the label from prefilled issue links unless the author can triage). Every ```agentbench-request block in
 the issue body or a comment is one requested variant; +1 reactions on the comment (or the
 issue, for body blocks) are its votes. This only measures demand: "Up next" is ordered by hand.
 Token: GITHUB_TOKEN, else `gh auth token`, else unauthenticated (public repos only).
@@ -21,6 +22,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 LABEL = "agentbench-request"
 AXES = ("model", "quant", "thinking", "harness", "benchmark")
 BLOCK = re.compile(r"^```agentbench-request[ \t]*\n(.*?)^```", re.M | re.S)
+TITLE = re.compile(r"^eval request:", re.I)
 THINKING = re.compile(r"^(any|off|on(:[a-z]+)?)$")
 HF_REPO = re.compile(r"^[\w.-]+/[\w.-]+$")
 
@@ -136,7 +138,8 @@ def main():
 
     auth = token()
     models = load_models()
-    issues = [i for i in github(f"repos/{args.repo}/issues?state=all&labels={LABEL}", auth) if "pull_request" not in i]
+    issues = [i for i in github(f"repos/{args.repo}/issues?state=all", auth)
+              if "pull_request" not in i and (LABEL in {l["name"] for l in i["labels"]} or TITLE.match(i["title"]))]
     requests = [build_request(i, github(f"repos/{args.repo}/issues/{i['number']}/comments", auth) if i["comments"] else [], models)
                 for i in issues]
     requests.sort(key=lambda r: (-r["votes"], r["issue"]))
