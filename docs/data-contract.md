@@ -44,3 +44,20 @@ details when applicable, and:
 ```
 
 Unknown or unavailable fields are omitted or `null`; they are never guessed.
+
+## Configuration qualifiers
+
+From `schemaVersion: 2`, every Agent Bench run must record both qualifiers;
+`scripts/validate_json.sh` rejects one that does not. Version 1 runs predate
+this rule and may leave them `null`.
+
+```json
+"quantization": {"level": "fp8", "servedPrecision": "fp8", "nativePrecision": "bf16"},
+"thinking": {"mode": "on", "effort": "default"}
+```
+
+- `quantization.level` is `full` when the model was served at its checkpoint's
+  native precision, otherwise the served precision (`fp8`, `fp4`, `int4`, ...).
+- `thinking.mode` is `unsupported` for models without a thinking mode, else
+  `off` or `on`. `effort` is set only when `mode` is `on`; `default` means
+  thinking was enabled without an explicit effort.
