@@ -41,6 +41,7 @@ def main():
                "tasks": [{"taskName": "fixture", "outcome": "failed", "reward": 0.0,
                           "rawVerifierReward": 1.0, "timedOut": True, "verifierTimedOut": False,
                           "outputTokens": 300, "generationTokensPerSec": 0.5,
+                          "llmRequestWallSec": 600.0,
                           "generationRateDenominator": "agent phase wall time",
                           "timeout": {"phase": "agent", "effectiveLimitSec": 900.0,
                                       "phaseDurationSec": 600.0}}]}

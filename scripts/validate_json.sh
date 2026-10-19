@@ -107,6 +107,8 @@ def check_scoring(path, run):
                 sys.exit(f'{path}: {task.get("taskName")}: missing token-count reason')
         if task.get('generationTokensPerSec') is not None and not task.get('generationRateDenominator'):
             sys.exit(f'{path}: {task.get("taskName")}: missing generation-rate denominator')
+        if task.get('generationTokensPerSec') is not None and not (task.get('llmRequestWallSec') or 0) > 0:
+            sys.exit(f'{path}: {task.get("taskName")}: missing positive LLM request duration')
     if result.get('nPassed') != sum(t.get('outcome') == 'passed' for t in tasks):
         sys.exit(f'{path}: passed count does not match trials')
 
