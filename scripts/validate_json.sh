@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-ROOT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+ROOT_DIR="${1:-$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)}"
 python3 - "$ROOT_DIR" <<'PY'
 import json, pathlib, re, sys
 root = pathlib.Path(sys.argv[1])
@@ -76,6 +76,41 @@ def check_config(path, run, models):
         sys.exit(f'{path}: configId {run.get("configId")} != {expected}')
 
 
+def check_scoring(path, run):
+    """Legacy runs are immutable; validate the new timeout policy when declared."""
+    result = run.get('result') or {}
+    if result.get('scoringPolicy') != 'timeout-fails-v1':
+        if result.get('scoringPolicy') is not None:
+            sys.exit(f'{path}: unknown scoring policy')
+        return
+    if (run.get('harness') or {}).get('settings', {}).get('scoringPolicy') != 'timeout-fails-v1':
+        sys.exit(f'{path}: scoring policy must be part of harness settings/configId')
+    tasks = run.get('tasks')
+    if tasks is None:
+        return  # manifest has no trial list; result.json carries it
+    if len(tasks) > result.get('nTasks', -1):
+        sys.exit(f'{path}: trial count exceeds result.nTasks')
+    for task in tasks:
+        timed_out = task.get('timedOut') or task.get('verifierTimedOut')
+        if task.get('reward') is not None and task.get('rawVerifierReward') is None:
+            sys.exit(f'{path}: {task.get("taskName")}: raw verifier reward is required')
+        if timed_out:
+            timeout = task.get('timeout') or {}
+            expected_phase = 'agent' if task.get('timedOut') else 'verifier'
+            if task.get('outcome') != 'failed' or task.get('reward') != 0.0:
+                sys.exit(f'{path}: {task.get("taskName")}: timeout must be a scored failure')
+            if timeout.get('phase') != expected_phase or not (timeout.get('effectiveLimitSec') or timeout.get('effectiveLimitReason')):
+                sys.exit(f'{path}: {task.get("taskName")}: missing effective timeout or reason')
+            if timeout.get('phaseDurationSec') is None and not timeout.get('phaseDurationReason'):
+                sys.exit(f'{path}: {task.get("taskName")}: missing timeout duration or reason')
+            if task.get('outputTokens') is None and not task.get('outputTokensUnavailableReason'):
+                sys.exit(f'{path}: {task.get("taskName")}: missing token-count reason')
+        if task.get('generationTokensPerSec') is not None and not task.get('generationRateDenominator'):
+            sys.exit(f'{path}: {task.get("taskName")}: missing generation-rate denominator')
+    if result.get('nPassed') != sum(t.get('outcome') == 'passed' for t in tasks):
+        sys.exit(f'{path}: passed count does not match trials')
+
+
 models = {}
 for path in sorted(root.glob('published/models/*.json')):
     model = json.loads(path.read_text())
@@ -89,7 +124,7 @@ for path in files:
         check_qualifiers(path.relative_to(root), doc)
         if (doc.get('provenance') or {}).get('kind') == 'agent_bench':
             check_config(path.relative_to(root), doc, models)
+            check_scoring(path.relative_to(root), doc)
     print(path.relative_to(root))
 print(f'validated {len(files)} JSON files')
 PY
-
