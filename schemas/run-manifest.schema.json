@@ -29,7 +29,7 @@
         "type": "object",
         "required": ["level", "servedPrecision", "nativePrecision"],
         "properties": {
-          "level": {"description": "'full' when served at the checkpoint's native precision; otherwise the served precision.", "enum": ["full", "bf16", "fp16", "fp8", "int8", "fp6", "fp4", "int4"]},
+          "level": {"description": "'full' at native precision, a served API precision, or a GGUF type when format is gguf.", "type": "string", "anyOf": [{"enum": ["full", "bf16", "fp16", "fp8", "int8", "fp6", "fp4", "int4"]}, {"pattern": "^I?Q[1-8](_[0-9A-Z]+)*$"}]},
           "servedPrecision": {"type": "string"},
           "nativePrecision": {"type": "string"}
         }
@@ -42,7 +42,7 @@
           "effort": {"enum": [null, "default", "minimal", "low", "medium", "high", "xhigh", "max"]}
         },
         "if": {"properties": {"mode": {"const": "on"}}},
-        "then": {"properties": {"effort": {"type": "string"}}},
+        "then": {"properties": {"effort": {"type": ["string", "null"]}}},
         "else": {"properties": {"effort": {"const": null}}}
       }
     }

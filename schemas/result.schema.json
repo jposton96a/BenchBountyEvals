@@ -5,7 +5,7 @@
   "type": "object",
   "required": ["schemaVersion", "runId", "status", "model", "benchmark", "provenance", "artifacts"],
   "properties": {
-    "schemaVersion": {"type": "integer", "const": 1},
+    "schemaVersion": {"type": "integer", "enum": [1, 2]},
     "runId": {"type": "string"},
     "status": {"type": "string", "enum": ["completed", "failed", "partial"]},
     "model": {"type": "object"},
