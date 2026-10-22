@@ -1,12 +1,13 @@
 {
   "id": "quixbugs",
   "name": "QuixBugs",
-  "runCount": 5,
+  "runCount": 6,
   "runIds": [
     "20261021-qwen38-27b-q4km-quixbugs-low-001",
     "20261022-qwen38-27b-q4km-quixbugs-medium-001",
     "20261022-qwen38-27b-q4km-quixbugs-off-001",
     "20261022-qwen38-27b-q4km-quixbugs-xhigh-001",
+    "20261022-qwen38-27b-q6k-quixbugs-low-001",
     "20261022-qwen38-27b-q6k-quixbugs-off-001"
   ],
   "url": "benchmarks/quixbugs.json"
