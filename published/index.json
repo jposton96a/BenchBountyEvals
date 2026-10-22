@@ -26,20 +26,21 @@
     {
       "id": "quixbugs",
       "name": "QuixBugs",
-      "runCount": 6,
+      "runCount": 7,
       "runIds": [
         "20261021-qwen38-27b-q4km-quixbugs-low-001",
         "20261022-qwen38-27b-q4km-quixbugs-medium-001",
         "20261022-qwen38-27b-q4km-quixbugs-off-001",
         "20261022-qwen38-27b-q4km-quixbugs-xhigh-001",
         "20261022-qwen38-27b-q6k-quixbugs-low-001",
+        "20261022-qwen38-27b-q6k-quixbugs-medium-001",
         "20261022-qwen38-27b-q6k-quixbugs-off-001"
       ],
       "url": "benchmarks/quixbugs.json"
     }
   ],
   "dataStatus": "demo",
-  "generatedAt": "2026-10-22T10:39:01.124879+00:00",
+  "generatedAt": "2026-10-22T12:39:27.456526+00:00",
   "models": [
     {
       "id": "oracle",
@@ -64,7 +65,7 @@
     {
       "id": "qwen3.8-27b",
       "name": "Qwen3.8 27B",
-      "runCount": 9,
+      "runCount": 10,
       "runIds": [
         "20261004-qwen38-27b-q4_k_m-terminal-bench-2-full-001",
         "20261004-qwen38-27b-q6_k-terminal-bench-2-full-001",
@@ -74,12 +75,13 @@
         "20261022-qwen38-27b-q4km-quixbugs-off-001",
         "20261022-qwen38-27b-q4km-quixbugs-xhigh-001",
         "20261022-qwen38-27b-q6k-quixbugs-low-001",
+        "20261022-qwen38-27b-q6k-quixbugs-medium-001",
         "20261022-qwen38-27b-q6k-quixbugs-off-001"
       ],
       "url": "models/qwen3.8-27b.json"
     }
   ],
-  "realRunCount": 11,
+  "realRunCount": 12,
   "runs": [
     {
       "provenanceKind": "demo",
@@ -152,6 +154,12 @@
       "runId": "20261022-qwen38-27b-q6k-quixbugs-low-001",
       "status": "completed",
       "url": "runs/20261022-qwen38-27b-q6k-quixbugs-low-001/result.json"
+    },
+    {
+      "provenanceKind": "agent_bench",
+      "runId": "20261022-qwen38-27b-q6k-quixbugs-medium-001",
+      "status": "completed",
+      "url": "runs/20261022-qwen38-27b-q6k-quixbugs-medium-001/result.json"
     },
     {
       "provenanceKind": "agent_bench",
