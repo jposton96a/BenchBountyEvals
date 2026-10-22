@@ -1,0 +1,9 @@
+{
+  "id": "quixbugs",
+  "name": "QuixBugs",
+  "runCount": 1,
+  "runIds": [
+    "20261021-qwen38-27b-q4km-quixbugs-low-001"
+  ],
+  "url": "benchmarks/quixbugs.json"
+}
