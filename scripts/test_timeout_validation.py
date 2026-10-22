@@ -51,7 +51,17 @@ def main():
         bad["tasks"][0]["outcome"] = "passed"
         rejected = validate(root, bad)
         assert rejected.returncode != 0 and "timeout must be a scored failure" in rejected.stderr, rejected.stderr
-        print("timeout-fails-v1 fixture accepted; scoring a timeout as passed rejected")
+        missing = copy.deepcopy(doc)
+        missing["tasks"][0]["rawVerifierReward"] = None
+        assert validate(root, missing).returncode == 0
+        missing["tasks"][0]["timedOut"] = False
+        missing["tasks"][0]["verifierTimedOut"] = True
+        missing["tasks"][0]["timeout"]["phase"] = "verifier"
+        assert validate(root, missing).returncode == 0
+        missing["tasks"][0]["verifierTimedOut"] = False
+        rejected = validate(root, missing)
+        assert rejected.returncode != 0 and "raw verifier reward is required" in rejected.stderr
+        print("timeout cases accepted; passed timeout and missing ordinary reward rejected")
 
 
 if __name__ == "__main__":

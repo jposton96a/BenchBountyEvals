@@ -92,7 +92,7 @@ def check_scoring(path, run):
         sys.exit(f'{path}: trial count exceeds result.nTasks')
     for task in tasks:
         timed_out = task.get('timedOut') or task.get('verifierTimedOut')
-        if task.get('reward') is not None and task.get('rawVerifierReward') is None:
+        if task.get('reward') is not None and task.get('rawVerifierReward') is None and not timed_out:
             sys.exit(f'{path}: {task.get("taskName")}: raw verifier reward is required')
         if timed_out:
             timeout = task.get('timeout') or {}
