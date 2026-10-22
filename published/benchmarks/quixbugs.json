@@ -1,7 +1,7 @@
 {
   "id": "quixbugs",
   "name": "QuixBugs",
-  "runCount": 11,
+  "runCount": 12,
   "runIds": [
     "20261021-qwen38-27b-q4km-quixbugs-low-001",
     "20261022-qwen38-27b-q4km-quixbugs-medium-001",
@@ -13,7 +13,8 @@
     "20261022-qwen38-27b-q6k-quixbugs-xhigh-001",
     "20261022-qwen38-27b-q8-quixbugs-low-001",
     "20261022-qwen38-27b-q8-quixbugs-medium-001",
-    "20261022-qwen38-27b-q8-quixbugs-off-001"
+    "20261022-qwen38-27b-q8-quixbugs-off-001",
+    "20261022-qwen38-27b-q8-quixbugs-xhigh-001"
   ],
   "url": "benchmarks/quixbugs.json"
 }
