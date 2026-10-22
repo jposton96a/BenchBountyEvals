@@ -1,10 +1,9 @@
 {
   "artifacts": {
     "rawBundle": {
-      "localPath": "work/20261022-qwen38-27b-q6k-quixbugs-low-001/20261022-qwen38-27b-q6k-quixbugs-low-001.tar.gz",
       "sha256": "4f14df43c93ae13a76e62d75c6f19faf193c25b26e7dcb5446e1f7d781ae9c5c",
       "sizeBytes": 842160,
-      "uploaded": false,
+      "uploaded": true,
       "url": "https://github.com/jposton96a/BenchBountyEvals/releases/download/20261022-qwen38-27b-q6k-quixbugs-low-001/20261022-qwen38-27b-q6k-quixbugs-low-001.tar.gz"
     }
   },
