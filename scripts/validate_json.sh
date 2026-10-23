@@ -77,14 +77,17 @@ def check_config(path, run, models):
 
 
 def check_scoring(path, run):
-    """Legacy runs are immutable; validate the new timeout policy when declared."""
+    """Legacy runs are immutable; validate each declared scoring policy."""
     result = run.get('result') or {}
-    if result.get('scoringPolicy') != 'timeout-fails-v1':
-        if result.get('scoringPolicy') is not None:
-            sys.exit(f'{path}: unknown scoring policy')
+    policy = result.get('scoringPolicy')
+    if policy is None:
         return
-    if (run.get('harness') or {}).get('settings', {}).get('scoringPolicy') != 'timeout-fails-v1':
+    if policy not in ('timeout-fails-v1', 'timeout-and-cmake-fails-v2'):
+        sys.exit(f'{path}: unknown scoring policy')
+    if (run.get('harness') or {}).get('settings', {}).get('scoringPolicy') != policy:
         sys.exit(f'{path}: scoring policy must be part of harness settings/configId')
+    if policy == 'timeout-and-cmake-fails-v2' and (run.get('benchmark') or {}).get('id') != 'aider-polyglot':
+        sys.exit(f'{path}: CMake failure policy is only valid for Aider Polyglot')
     tasks = run.get('tasks')
     if tasks is None:
         return  # manifest has no trial list; result.json carries it
@@ -92,8 +95,19 @@ def check_scoring(path, run):
         sys.exit(f'{path}: trial count exceeds result.nTasks')
     for task in tasks:
         timed_out = task.get('timedOut') or task.get('verifierTimedOut')
-        if task.get('reward') is not None and task.get('rawVerifierReward') is None and not timed_out:
+        build_failure = task.get('verifierBuildFailure')
+        if task.get('reward') is not None and task.get('rawVerifierReward') is None and not timed_out and not build_failure:
             sys.exit(f'{path}: {task.get("taskName")}: raw verifier reward is required')
+        if build_failure:
+            expected_log = f'{task.get("trialName")}/verifier/test-stdout.txt'
+            if (policy != 'timeout-and-cmake-fails-v2' or timed_out
+                    or (task.get('error') or {}).get('type') != 'RewardFileNotFoundError'
+                    or task.get('rawVerifierReward') is not None
+                    or task.get('outcome') != 'failed' or task.get('reward') != 0.0
+                    or build_failure.get('kind') != 'cmake-build-failed'
+                    or build_failure.get('logPath') != expected_log
+                    or not re.fullmatch(r'[a-f0-9]{64}', build_failure.get('logSha256') or '')):
+                sys.exit(f'{path}: {task.get("taskName")}: invalid CMake failure evidence')
         if timed_out:
             timeout = task.get('timeout') or {}
             expected_phase = 'agent' if task.get('timedOut') else 'verifier'
