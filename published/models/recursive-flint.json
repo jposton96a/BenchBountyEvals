@@ -1,0 +1,39 @@
+{
+  "id": "recursive-flint",
+  "name": "Recursive Flint",
+  "hfRepo": "RecursiveSI/flint",
+  "baseModelId": null,
+  "vendor": "Recursive",
+  "releaseDate": "2026-10-21",
+  "openWeights": true,
+  "nativePrecision": "bf16",
+  "referenceQuantId": "bf16",
+  "thinking": {
+    "modes": ["on"],
+    "efforts": null,
+    "control": "model-native chat template; no client override"
+  },
+  "quants": [
+    {
+      "id": "bf16",
+      "format": "safetensors",
+      "scheme": "BF16",
+      "repo": "RecursiveSI/flint",
+      "revision": "2a247be0c0aec895ccb0ac7ca92229ec6df37288"
+    },
+    {
+      "id": "ggml-q4_k_m",
+      "format": "gguf",
+      "scheme": "Q4_K_M",
+      "repo": "ggml-org/Flint-GGUF",
+      "revision": "468307a1b38259e9e4c9d4fe53d4e3b76386572c",
+      "files": [
+        {
+          "name": "Flint-Q4_K_M.gguf",
+          "sha256": "c3c4d93f9db92627a2fc47ea8fe8c64a094cabd3549db544bcdd2c00e9a9a347"
+        }
+      ]
+    }
+  ],
+  "verified": true
+}
