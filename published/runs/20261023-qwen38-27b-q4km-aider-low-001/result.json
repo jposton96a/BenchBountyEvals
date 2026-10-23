@@ -1,10 +1,9 @@
 {
   "artifacts": {
     "rawBundle": {
-      "localPath": "work/20261023-qwen38-27b-q4km-aider-low-001/20261023-qwen38-27b-q4km-aider-low-001.tar.gz",
       "sha256": "76ddf794eddb0ce3c20bcf2dd34cb71f40224dc652071a0aae90332a8441659d",
       "sizeBytes": 8594995,
-      "uploaded": false,
+      "uploaded": true,
       "url": "https://github.com/jposton96a/BenchBountyEvals/releases/download/20261023-qwen38-27b-q4km-aider-low-001/20261023-qwen38-27b-q4km-aider-low-001.tar.gz"
     }
   },
