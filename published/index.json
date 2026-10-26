@@ -26,16 +26,17 @@
     {
       "id": "bfcl-v4-single-turn",
       "name": "BFCL v4 Single-Turn",
-      "runCount": 2,
+      "runCount": 3,
       "runIds": [
         "qwen36-35b-a3b-q4-k-m-bfcl-v4-single-turn-001-20261025",
-        "qwen38-27b-q4-k-m-bfcl-v4-single-turn-off-20261026-001"
+        "qwen38-27b-q4-k-m-bfcl-v4-single-turn-off-20261026-001",
+        "recursive-flint-q4-k-m-bfcl-v4-single-turn-001-20261025"
       ],
       "url": "benchmarks/bfcl-v4-single-turn.json"
     }
   ],
   "dataStatus": "demo",
-  "generatedAt": "2026-10-26T22:51:42.728384+00:00",
+  "generatedAt": "2026-10-26T22:51:48.987377+00:00",
   "models": [
     {
       "id": "oracle",
@@ -69,9 +70,18 @@
         "qwen38-27b-q4-k-m-bfcl-v4-single-turn-off-20261026-001"
       ],
       "url": "models/qwen3.8-27b.json"
+    },
+    {
+      "id": "recursive-flint",
+      "name": "Recursive Flint",
+      "runCount": 1,
+      "runIds": [
+        "recursive-flint-q4-k-m-bfcl-v4-single-turn-001-20261025"
+      ],
+      "url": "models/recursive-flint.json"
     }
   ],
-  "realRunCount": 7,
+  "realRunCount": 8,
   "runs": [
     {
       "provenanceKind": "demo",
@@ -126,6 +136,12 @@
       "runId": "qwen38-27b-q4-k-m-bfcl-v4-single-turn-off-20261026-001",
       "status": "completed",
       "url": "runs/qwen38-27b-q4-k-m-bfcl-v4-single-turn-off-20261026-001/result.json"
+    },
+    {
+      "provenanceKind": "agent_bench",
+      "runId": "recursive-flint-q4-k-m-bfcl-v4-single-turn-001-20261025",
+      "status": "completed",
+      "url": "runs/recursive-flint-q4-k-m-bfcl-v4-single-turn-001-20261025/result.json"
     }
   ],
   "schemaVersion": 1
