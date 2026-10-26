@@ -2,8 +2,8 @@
   "artifacts": {
     "rawBundle": {
       "localPath": "work/qwen38-27b-q4-k-m-bfcl-v4-single-turn-off-20261026-001/qwen38-27b-q4-k-m-bfcl-v4-single-turn-off-20261026-001.tar.gz",
-      "sha256": "5dac83061a7cc84e10100e679b5031a1fedd26a8ea75c69297698b2041e6abd1",
-      "sizeBytes": 3977331,
+      "sha256": "ae2e77cd2e07b09bd98be0dc16be19f6fd887ae3016c077df70867b02e818a59",
+      "sizeBytes": 3977370,
       "uploaded": false,
       "url": "https://github.com/jposton96a/BenchBountyEvals/releases/download/qwen38-27b-q4-k-m-bfcl-v4-single-turn-off-20261026-001/qwen38-27b-q4-k-m-bfcl-v4-single-turn-off-20261026-001.tar.gz"
     }
@@ -3693,9 +3693,11 @@
     "cacheTokens": null,
     "currency": "USD",
     "inferenceUsd": 2.033449,
-    "inputTokens": null,
+    "inputTokens": 2386378,
+    "latencySeconds": 12095.7192,
     "occupiedComputeUsd": 2.033449,
-    "outputTokens": null,
+    "outputTokens": 237242,
+    "outputTokensPerSecond": 19.6137,
     "servingUsd": 1.993,
     "source": "RunPod wallet balance delta for total occupied pod cost; servingUsd is costPerHr x model-loaded serving time; BFCL token totals are retained in raw result rows"
   },
