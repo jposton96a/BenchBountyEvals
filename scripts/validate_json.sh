@@ -10,7 +10,7 @@ files = sorted(root.glob('published/**/*.json')) + sorted(root.glob('schemas/*.j
 QUANT_LEVELS = {'full', 'bf16', 'fp16', 'fp8', 'int8', 'fp6', 'fp4', 'int4'}
 # llama.cpp GGUF quant types (Q4_K_M, Q6_K, Q8_0, IQ4_XS, ...), recorded verbatim with format 'gguf'.
 GGUF_LEVEL = re.compile(r'^I?Q[1-8](_[0-9A-Z]+)*$')
-THINKING_MODES = {'unsupported', 'off', 'on'}
+THINKING_MODES = {'unsupported', 'off', 'on', 'automatic'}
 
 
 def check_qualifiers(path, run):
@@ -44,8 +44,11 @@ def check_model(path, model):
         if not {'id', 'format', 'scheme'} <= q.keys():
             sys.exit(f'{path}: quant {q.get("id")} needs id, format and scheme')
     t = model['thinking']
-    if not t['modes'] or not set(t['modes']) <= {'off', 'on'}:
-        sys.exit(f'{path}: thinking.modes must be a non-empty subset of off/on')
+    if t['modes'] == ['automatic']:
+        if t['efforts'] is not None:
+            sys.exit(f'{path}: automatic thinking cannot declare selectable efforts')
+    elif not t['modes'] or not set(t['modes']) <= {'off', 'on'}:
+        sys.exit(f'{path}: thinking.modes must be off/on or automatic alone')
     if t['efforts'] is not None and ('on' not in t['modes'] or not t['efforts']):
         sys.exit(f'{path}: thinking.efforts needs mode on, and is null or a non-empty list')
 
@@ -67,7 +70,9 @@ def check_config(path, run, models):
     if thinking.get('mode') not in allowed['modes']:
         sys.exit(f'{path}: thinking.mode {thinking.get("mode")!r} not in {model["id"]} modes {allowed["modes"]}')
     effort = thinking.get('effort')
-    if effort is not None and (thinking['mode'] != 'on' or effort not in (allowed['efforts'] or [])):
+    if thinking['mode'] == 'automatic' and effort != 'not_applicable':
+        sys.exit(f'{path}: automatic thinking requires effort=not_applicable')
+    if effort is not None and effort != 'not_applicable' and (thinking['mode'] != 'on' or effort not in (allowed['efforts'] or [])):
         sys.exit(f'{path}: thinking.effort {effort!r} not allowed by {model["id"]}')
     if not (run.get('harness') or {}).get('id'):
         sys.exit(f'{path}: harness.id is required')
@@ -79,6 +84,31 @@ def check_config(path, run, models):
 def check_scoring(path, run):
     """Legacy runs are immutable; validate the new timeout policy when declared."""
     result = run.get('result') or {}
+    if result.get('scoringPolicy') == 'bfcl-v4-single-turn-derived-v1':
+        benchmark = run.get('benchmark') or {}
+        if benchmark.get('id') != 'bfcl-v4-single-turn':
+            sys.exit(f'{path}: BFCL Single-Turn scoring policy requires benchmark bfcl-v4-single-turn')
+        expected_formula = '(Non-Live + Live + Hallucination Measurement) / 3'
+        components = result.get('components') or {}
+        if result.get('metric') != 'bfcl_v4_single_turn_derived_accuracy':
+            sys.exit(f'{path}: BFCL Single-Turn metric is invalid')
+        if result.get('formula') != expected_formula or result.get('expectedCases') != 3641:
+            sys.exit(f'{path}: BFCL Single-Turn formula or expected case count is invalid')
+        if result.get('nTasks') != 3641 or result.get('nErrored') != 0:
+            sys.exit(f'{path}: BFCL Single-Turn requires all 3,641 cases and zero errors')
+        if result.get('nPassed', 0) + result.get('nFailed', 0) != 3641:
+            sys.exit(f'{path}: BFCL Single-Turn passed and failed counts must total 3,641')
+        if set(components) != {'nonLive', 'live', 'hallucination'}:
+            sys.exit(f'{path}: BFCL Single-Turn requires all three canonical components')
+        if any(not isinstance(v, (int, float)) or not 0 <= v <= 1 for v in components.values()):
+            sys.exit(f'{path}: BFCL Single-Turn components must be scores from 0 to 1')
+        expected_score = round(sum(components.values()) / 3, 6)
+        if result.get('score') != expected_score:
+            sys.exit(f'{path}: BFCL derived score {result.get("score")} != {expected_score}')
+        categories = result.get('categories') or []
+        if sum(c.get('nTasks', 0) for c in categories) != 3641:
+            sys.exit(f'{path}: BFCL category counts must total 3,641')
+        return
     if result.get('scoringPolicy') != 'timeout-fails-v1':
         if result.get('scoringPolicy') is not None:
             sys.exit(f'{path}: unknown scoring policy')

@@ -1,0 +1,34 @@
+{
+  "id": "recursive-flint",
+  "name": "Recursive Flint",
+  "hfRepo": "RecursiveSI/flint",
+  "baseModelId": null,
+  "vendor": "Recursive",
+  "releaseDate": "unknown",
+  "openWeights": true,
+  "nativePrecision": "bf16",
+  "referenceQuantId": "ggml-org-q4_k_m",
+  "thinking": {
+    "modes": [
+      "automatic"
+    ],
+    "efforts": null,
+    "control": "model chooses when and how much to reason; no user-selectable mode or effort"
+  },
+  "quants": [
+    {
+      "id": "ggml-org-q4_k_m",
+      "format": "gguf",
+      "scheme": "Q4_K_M",
+      "repo": "ggml-org/Flint-GGUF",
+      "revision": "468307a1b38259e9e4c9d4fe53d4e3b76386572c",
+      "files": [
+        {
+          "name": "Flint-Q4_K_M.gguf",
+          "sha256": "c3c4d93f9db92627a2fc47ea8fe8c64a094cabd3549db544bcdd2c00e9a9a347"
+        }
+      ]
+    }
+  ],
+  "verified": true
+}

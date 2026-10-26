@@ -38,12 +38,16 @@
         "type": "object",
         "required": ["mode", "effort"],
         "properties": {
-          "mode": {"description": "'unsupported' for models without a thinking mode.", "enum": ["unsupported", "off", "on"]},
-          "effort": {"enum": [null, "default", "minimal", "low", "medium", "high", "xhigh", "max"]}
+          "mode": {"description": "'unsupported' for models without a thinking mode; 'automatic' when the model chooses whether and how much to reason.", "enum": ["unsupported", "off", "on", "automatic"]},
+          "effort": {"enum": [null, "not_applicable", "default", "minimal", "low", "medium", "high", "xhigh", "max"]}
         },
-        "if": {"properties": {"mode": {"const": "on"}}},
-        "then": {"properties": {"effort": {"type": ["string", "null"]}}},
-        "else": {"properties": {"effort": {"const": null}}}
+        "if": {"properties": {"mode": {"const": "automatic"}}},
+        "then": {"properties": {"effort": {"const": "not_applicable"}}},
+        "else": {
+          "if": {"properties": {"mode": {"const": "on"}}},
+          "then": {"properties": {"effort": {"type": ["string", "null"]}}},
+          "else": {"properties": {"effort": {"const": null}}}
+        }
       }
     }
   },
