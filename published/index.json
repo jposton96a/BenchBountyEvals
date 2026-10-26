@@ -26,15 +26,16 @@
     {
       "id": "bfcl-v4-single-turn",
       "name": "BFCL v4 Single-Turn",
-      "runCount": 1,
+      "runCount": 2,
       "runIds": [
+        "qwen36-35b-a3b-q4-k-m-bfcl-v4-single-turn-001-20261025",
         "qwen38-27b-q4-k-m-bfcl-v4-single-turn-off-20261026-001"
       ],
       "url": "benchmarks/bfcl-v4-single-turn.json"
     }
   ],
   "dataStatus": "demo",
-  "generatedAt": "2026-10-26T22:51:34.716071+00:00",
+  "generatedAt": "2026-10-26T22:51:42.728384+00:00",
   "models": [
     {
       "id": "oracle",
@@ -49,10 +50,11 @@
     {
       "id": "qwen3.6-35b-a3b",
       "name": "Qwen3.6 35B A3B",
-      "runCount": 2,
+      "runCount": 3,
       "runIds": [
         "20260929-qwen36-aider-polyglot-4lang-001",
-        "20260929-qwen36-terminal-bench-2-easy4-001"
+        "20260929-qwen36-terminal-bench-2-easy4-001",
+        "qwen36-35b-a3b-q4-k-m-bfcl-v4-single-turn-001-20261025"
       ],
       "url": "models/qwen3.6-35b-a3b.json"
     },
@@ -69,7 +71,7 @@
       "url": "models/qwen3.8-27b.json"
     }
   ],
-  "realRunCount": 6,
+  "realRunCount": 7,
   "runs": [
     {
       "provenanceKind": "demo",
@@ -112,6 +114,12 @@
       "runId": "20261004-qwen38-27b-q8_0-terminal-bench-2-full-001",
       "status": "completed",
       "url": "runs/20261004-qwen38-27b-q8_0-terminal-bench-2-full-001/result.json"
+    },
+    {
+      "provenanceKind": "agent_bench",
+      "runId": "qwen36-35b-a3b-q4-k-m-bfcl-v4-single-turn-001-20261025",
+      "status": "completed",
+      "url": "runs/qwen36-35b-a3b-q4-k-m-bfcl-v4-single-turn-001-20261025/result.json"
     },
     {
       "provenanceKind": "agent_bench",

@@ -1,8 +1,9 @@
 {
   "id": "bfcl-v4-single-turn",
   "name": "BFCL v4 Single-Turn",
-  "runCount": 1,
+  "runCount": 2,
   "runIds": [
+    "qwen36-35b-a3b-q4-k-m-bfcl-v4-single-turn-001-20261025",
     "qwen38-27b-q4-k-m-bfcl-v4-single-turn-off-20261026-001"
   ],
   "url": "benchmarks/bfcl-v4-single-turn.json"
