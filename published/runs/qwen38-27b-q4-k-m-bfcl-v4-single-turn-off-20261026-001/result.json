@@ -1,11 +1,11 @@
 {
   "artifacts": {
     "rawBundle": {
-      "localPath": "work/qwen38-27b-q4-k-m-bfcl-v4-single-turn-off-20261026-001/qwen38-27b-q4-k-m-bfcl-v4-single-turn-off-20261026-001.tar.gz",
       "sha256": "ae2e77cd2e07b09bd98be0dc16be19f6fd887ae3016c077df70867b02e818a59",
       "sizeBytes": 3977370,
       "uploaded": false,
-      "url": "https://github.com/jposton96a/BenchBountyEvals/releases/download/qwen38-27b-q4-k-m-bfcl-v4-single-turn-off-20261026-001/qwen38-27b-q4-k-m-bfcl-v4-single-turn-off-20261026-001.tar.gz"
+      "distributionStatus": "withheld",
+      "distributionNote": "Raw archive contains BFCL input data; per-item redistribution terms are incomplete."
     }
   },
   "benchmark": {

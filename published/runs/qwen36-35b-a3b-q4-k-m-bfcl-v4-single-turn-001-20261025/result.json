@@ -1,11 +1,11 @@
 {
   "artifacts": {
     "rawBundle": {
-      "localPath": "work/qwen36-35b-a3b-q4-k-m-bfcl-v4-single-turn-001-20261025/qwen36-35b-a3b-q4-k-m-bfcl-v4-single-turn-001-20261025.tar.gz",
       "sha256": "c8050a3fa0d4d709f1aa459c03f24d51275c69c9862d7c1e6eea88ef2bb8d8c3",
       "sizeBytes": 6220842,
       "uploaded": false,
-      "url": "https://github.com/jposton96a/BenchBountyEvals/releases/download/qwen36-35b-a3b-q4-k-m-bfcl-v4-single-turn-001-20261025/qwen36-35b-a3b-q4-k-m-bfcl-v4-single-turn-001-20261025.tar.gz"
+      "distributionStatus": "withheld",
+      "distributionNote": "Raw archive contains BFCL input data; per-item redistribution terms are incomplete."
     }
   },
   "benchmark": {

@@ -7,9 +7,12 @@ https://<owner>.github.io/BenchBountyEvals/published/index.json
 ```
 
 The UI must start at `index.json`, then fetch only the documents it needs. The
-exact-run document is the source of truth for a score. It contains a stable
-Release URL for the complete raw bundle. Release assets are immutable; the UI
-can expose them as a full-trace download.
+exact-run document is the source of truth for a score. When a raw bundle is
+redistributable, it contains a stable Release URL. If licensing or privacy
+limits require withholding a bundle, publish its SHA-256 and size with
+`uploaded: false` and `distributionStatus: "withheld"`; omit `url` and local
+filesystem paths. The normalized result may still be published when its score
+and claim are independently supported.
 
 ## Index shape
 
@@ -38,12 +41,16 @@ details when applicable, and:
   "rawBundle": {
     "url": "https://github.com/<owner>/BenchBountyEvals/releases/download/<run-id>/<run-id>.tar.zst",
     "sha256": "...",
-    "sizeBytes": 1234
+    "sizeBytes": 1234,
+    "uploaded": true,
+    "distributionStatus": "available"
   }
 }
 ```
 
-Unknown or unavailable fields are omitted or `null`; they are never guessed.
+For a withheld bundle, omit `url` and use `uploaded: false` plus
+`distributionStatus: "withheld"`. Unknown or unavailable fields are omitted or
+`null`; they are never guessed.
 
 ## Configuration qualifiers
 

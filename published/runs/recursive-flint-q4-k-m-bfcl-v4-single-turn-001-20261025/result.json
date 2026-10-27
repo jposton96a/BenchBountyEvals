@@ -1,11 +1,11 @@
 {
   "artifacts": {
     "rawBundle": {
-      "localPath": "work/recursive-flint-q4-k-m-bfcl-v4-single-turn-001-20261025/recursive-flint-q4-k-m-bfcl-v4-single-turn-001-20261025.tar.gz",
       "sha256": "ba1d1e60363ac69eabdf65bdcc860fade71b3948e708dfe2176ebc52a4ba7f4b",
       "sizeBytes": 4501785,
       "uploaded": false,
-      "url": "https://github.com/jposton96a/BenchBountyEvals/releases/download/recursive-flint-q4-k-m-bfcl-v4-single-turn-001-20261025/recursive-flint-q4-k-m-bfcl-v4-single-turn-001-20261025.tar.gz"
+      "distributionStatus": "withheld",
+      "distributionNote": "Raw archive contains BFCL input data; per-item redistribution terms are incomplete."
     }
   },
   "benchmark": {
