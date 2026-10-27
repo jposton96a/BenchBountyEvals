@@ -3,10 +3,11 @@
     {
       "id": "aider-polyglot",
       "name": "Aider Polyglot",
-      "runCount": 2,
+      "runCount": 3,
       "runIds": [
         "20260927-oracle-aider-polyglot-4lang-001",
-        "20260929-qwen36-aider-polyglot-4lang-001"
+        "20260929-qwen36-aider-polyglot-4lang-001",
+        "20261023-qwen38-27b-q4km-aider-low-001"
       ],
       "url": "benchmarks/aider-polyglot.json"
     },
@@ -24,6 +25,26 @@
       "url": "benchmarks/terminal-bench-2.json"
     },
     {
+      "id": "quixbugs",
+      "name": "QuixBugs",
+      "runCount": 12,
+      "runIds": [
+        "20261021-qwen38-27b-q4km-quixbugs-low-001",
+        "20261022-qwen38-27b-q4km-quixbugs-medium-001",
+        "20261022-qwen38-27b-q4km-quixbugs-off-001",
+        "20261022-qwen38-27b-q4km-quixbugs-xhigh-001",
+        "20261022-qwen38-27b-q6k-quixbugs-low-001",
+        "20261022-qwen38-27b-q6k-quixbugs-medium-001",
+        "20261022-qwen38-27b-q6k-quixbugs-off-001",
+        "20261022-qwen38-27b-q6k-quixbugs-xhigh-001",
+        "20261022-qwen38-27b-q8-quixbugs-low-001",
+        "20261022-qwen38-27b-q8-quixbugs-medium-001",
+        "20261022-qwen38-27b-q8-quixbugs-off-001",
+        "20261022-qwen38-27b-q8-quixbugs-xhigh-001"
+      ],
+      "url": "benchmarks/quixbugs.json"
+    },
+    {
       "id": "bfcl-v4-single-turn",
       "name": "BFCL v4 Single-Turn",
       "runCount": 3,
@@ -36,7 +57,7 @@
     }
   ],
   "dataStatus": "demo",
-  "generatedAt": "2026-10-26T22:53:32.032525+00:00",
+  "generatedAt": "2026-10-27T06:01:20.840074+00:00",
   "models": [
     {
       "id": "oracle",
@@ -62,11 +83,24 @@
     {
       "id": "qwen3.8-27b",
       "name": "Qwen3.8 27B",
-      "runCount": 4,
+      "runCount": 17,
       "runIds": [
         "20261004-qwen38-27b-q4_k_m-terminal-bench-2-full-001",
         "20261004-qwen38-27b-q6_k-terminal-bench-2-full-001",
         "20261004-qwen38-27b-q8_0-terminal-bench-2-full-001",
+        "20261021-qwen38-27b-q4km-quixbugs-low-001",
+        "20261022-qwen38-27b-q4km-quixbugs-medium-001",
+        "20261022-qwen38-27b-q4km-quixbugs-off-001",
+        "20261022-qwen38-27b-q4km-quixbugs-xhigh-001",
+        "20261022-qwen38-27b-q6k-quixbugs-low-001",
+        "20261022-qwen38-27b-q6k-quixbugs-medium-001",
+        "20261022-qwen38-27b-q6k-quixbugs-off-001",
+        "20261022-qwen38-27b-q6k-quixbugs-xhigh-001",
+        "20261022-qwen38-27b-q8-quixbugs-low-001",
+        "20261022-qwen38-27b-q8-quixbugs-medium-001",
+        "20261022-qwen38-27b-q8-quixbugs-off-001",
+        "20261022-qwen38-27b-q8-quixbugs-xhigh-001",
+        "20261023-qwen38-27b-q4km-aider-low-001",
         "qwen38-27b-q4-k-m-bfcl-v4-single-turn-off-20261026-001"
       ],
       "url": "models/qwen3.8-27b.json"
@@ -81,7 +115,7 @@
       "url": "models/recursive-flint.json"
     }
   ],
-  "realRunCount": 8,
+  "realRunCount": 21,
   "runs": [
     {
       "provenanceKind": "demo",
@@ -124,6 +158,84 @@
       "runId": "20261004-qwen38-27b-q8_0-terminal-bench-2-full-001",
       "status": "completed",
       "url": "runs/20261004-qwen38-27b-q8_0-terminal-bench-2-full-001/result.json"
+    },
+    {
+      "provenanceKind": "agent_bench",
+      "runId": "20261021-qwen38-27b-q4km-quixbugs-low-001",
+      "status": "completed",
+      "url": "runs/20261021-qwen38-27b-q4km-quixbugs-low-001/result.json"
+    },
+    {
+      "provenanceKind": "agent_bench",
+      "runId": "20261022-qwen38-27b-q4km-quixbugs-medium-001",
+      "status": "completed",
+      "url": "runs/20261022-qwen38-27b-q4km-quixbugs-medium-001/result.json"
+    },
+    {
+      "provenanceKind": "agent_bench",
+      "runId": "20261022-qwen38-27b-q4km-quixbugs-off-001",
+      "status": "completed",
+      "url": "runs/20261022-qwen38-27b-q4km-quixbugs-off-001/result.json"
+    },
+    {
+      "provenanceKind": "agent_bench",
+      "runId": "20261022-qwen38-27b-q4km-quixbugs-xhigh-001",
+      "status": "completed",
+      "url": "runs/20261022-qwen38-27b-q4km-quixbugs-xhigh-001/result.json"
+    },
+    {
+      "provenanceKind": "agent_bench",
+      "runId": "20261022-qwen38-27b-q6k-quixbugs-low-001",
+      "status": "completed",
+      "url": "runs/20261022-qwen38-27b-q6k-quixbugs-low-001/result.json"
+    },
+    {
+      "provenanceKind": "agent_bench",
+      "runId": "20261022-qwen38-27b-q6k-quixbugs-medium-001",
+      "status": "completed",
+      "url": "runs/20261022-qwen38-27b-q6k-quixbugs-medium-001/result.json"
+    },
+    {
+      "provenanceKind": "agent_bench",
+      "runId": "20261022-qwen38-27b-q6k-quixbugs-off-001",
+      "status": "completed",
+      "url": "runs/20261022-qwen38-27b-q6k-quixbugs-off-001/result.json"
+    },
+    {
+      "provenanceKind": "agent_bench",
+      "runId": "20261022-qwen38-27b-q6k-quixbugs-xhigh-001",
+      "status": "completed",
+      "url": "runs/20261022-qwen38-27b-q6k-quixbugs-xhigh-001/result.json"
+    },
+    {
+      "provenanceKind": "agent_bench",
+      "runId": "20261022-qwen38-27b-q8-quixbugs-low-001",
+      "status": "completed",
+      "url": "runs/20261022-qwen38-27b-q8-quixbugs-low-001/result.json"
+    },
+    {
+      "provenanceKind": "agent_bench",
+      "runId": "20261022-qwen38-27b-q8-quixbugs-medium-001",
+      "status": "completed",
+      "url": "runs/20261022-qwen38-27b-q8-quixbugs-medium-001/result.json"
+    },
+    {
+      "provenanceKind": "agent_bench",
+      "runId": "20261022-qwen38-27b-q8-quixbugs-off-001",
+      "status": "completed",
+      "url": "runs/20261022-qwen38-27b-q8-quixbugs-off-001/result.json"
+    },
+    {
+      "provenanceKind": "agent_bench",
+      "runId": "20261022-qwen38-27b-q8-quixbugs-xhigh-001",
+      "status": "completed",
+      "url": "runs/20261022-qwen38-27b-q8-quixbugs-xhigh-001/result.json"
+    },
+    {
+      "provenanceKind": "agent_bench",
+      "runId": "20261023-qwen38-27b-q4km-aider-low-001",
+      "status": "completed",
+      "url": "runs/20261023-qwen38-27b-q4km-aider-low-001/result.json"
     },
     {
       "provenanceKind": "agent_bench",

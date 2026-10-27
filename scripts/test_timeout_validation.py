@@ -51,7 +51,38 @@ def main():
         bad["tasks"][0]["outcome"] = "passed"
         rejected = validate(root, bad)
         assert rejected.returncode != 0 and "timeout must be a scored failure" in rejected.stderr, rejected.stderr
-        print("timeout-fails-v1 fixture accepted; scoring a timeout as passed rejected")
+        missing = copy.deepcopy(doc)
+        missing["tasks"][0]["rawVerifierReward"] = None
+        assert validate(root, missing).returncode == 0
+        missing["tasks"][0]["timedOut"] = False
+        missing["tasks"][0]["verifierTimedOut"] = True
+        missing["tasks"][0]["timeout"]["phase"] = "verifier"
+        assert validate(root, missing).returncode == 0
+        missing["tasks"][0]["verifierTimedOut"] = False
+        rejected = validate(root, missing)
+        assert rejected.returncode != 0 and "raw verifier reward is required" in rejected.stderr
+        build = copy.deepcopy(doc)
+        build["benchmark"] = {"id": "aider-polyglot"}
+        build["harness"]["settings"]["scoringPolicy"] = "timeout-and-cmake-fails-v2"
+        build["result"]["scoringPolicy"] = "timeout-and-cmake-fails-v2"
+        build["configId"] = config_id(model["id"], quant, thinking, build["harness"])
+        build["tasks"] = [{"taskName": "polyglot_cpp_clock", "trialName": "polyglot_cpp_clock__fixture",
+                           "outcome": "failed", "reward": 0.0, "rawVerifierReward": None,
+                           "timedOut": False, "verifierTimedOut": False,
+                           "error": {"type": "RewardFileNotFoundError", "message": "No reward file found"},
+                           "verifierBuildFailure": {"kind": "cmake-build-failed",
+                                                    "logPath": "polyglot_cpp_clock__fixture/verifier/test-stdout.txt",
+                                                    "logSha256": "a" * 64}}]
+        assert validate(root, build).returncode == 0
+        unsupported = copy.deepcopy(build)
+        unsupported["tasks"][0]["verifierBuildFailure"] = None
+        rejected = validate(root, unsupported)
+        assert rejected.returncode != 0 and "raw verifier reward is required" in rejected.stderr
+        forged = copy.deepcopy(build)
+        forged["tasks"][0]["verifierBuildFailure"]["logPath"] = "wrong/path"
+        rejected = validate(root, forged)
+        assert rejected.returncode != 0 and "invalid CMake failure evidence" in rejected.stderr
+        print("timeout and evidenced CMake failures accepted; missing evidence rejected")
 
 
 if __name__ == "__main__":
